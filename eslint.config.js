@@ -1,7 +1,6 @@
 import eslint from "@typescript-eslint/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintConfigUniverse from "eslint-config-universe";
-import i18next from "eslint-plugin-i18next";
 import pluginImport from "eslint-plugin-import";
 import perfectionist from "eslint-plugin-perfectionist";
 import pluginReact from "eslint-plugin-react";
@@ -26,7 +25,6 @@ export default [
       eslint,
       eslintConfigPrettier,
       eslintConfigUniverse,
-      i18next,
       perfectionist,
       pluginImport,
       pluginReactRefresh,
@@ -42,7 +40,6 @@ export default [
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-unused-vars": "error",
-      "i18next/no-literal-string": "warn",
       "no-unused-vars": "off",
       "padding-line-between-statements": "warn",
       "perfectionist/sort-imports": "warn",

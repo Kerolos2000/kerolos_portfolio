@@ -1,12 +1,11 @@
 {
   "arrowParens": "avoid",
   "endOfLine": "auto",
-  "jsxSingleQuote": false,
+  "jsxSingleQuote": true,
   "parser": "typescript",
   "semi": true,
   "singleAttributePerLine": true,
-  "singleQuote": false,
-  "tabWidth": 4,
+  "singleQuote": true,
   "trailingComma": "all",
   "useTabs": true
 }
