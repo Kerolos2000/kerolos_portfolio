@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "lint": "eslint ./src --fix",
+    "lint:init": "eslint ./src --init",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
