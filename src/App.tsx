@@ -1,12 +1,14 @@
-import { Box, Typography } from '@mui/material';
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './routes';
 
 export interface AppProps {}
 
 export const App: React.FC<AppProps> = () => {
 	return (
-		<Box>
-			<Typography>test</Typography>
-		</Box>
+		<>
+			<RouterProvider router={router} />
+		</>
 	);
 };
