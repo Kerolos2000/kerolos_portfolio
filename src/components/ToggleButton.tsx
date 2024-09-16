@@ -10,10 +10,10 @@ export interface ToggleButtonProps {}
 export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 	const theme = useTheme();
 	const { mode, setMode } = useChangeMode();
-	const isDark = mode === Mode.dark;
+	const isDark = mode === Mode.Dark;
 
 	const toggleSwitch = () => {
-		setMode(isDark ? Mode.light : Mode.dark);
+		setMode(isDark ? Mode.Light : Mode.Dark);
 	};
 
 	return (

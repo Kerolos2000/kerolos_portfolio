@@ -1,7 +1,8 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import React, { useEffect, useRef } from 'react';
 import WaterWave from 'react-water-wave';
-import { Mode } from 'src/constant';
+import { Section } from 'src/components';
+import { Mode, Sections } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 import Typed from 'typed.js';
 
@@ -27,7 +28,12 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 	}, []);
 
 	return (
-		<>
+		<Section
+			disableGutters
+			id={Sections.Hero}
+			maxWidth={false}
+			sx={{ py: 0 }}
+		>
 			<WaterWave
 				imageUrl={background}
 				resolution={500}
@@ -35,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					filter: mode === Mode.dark ? 'saturate(0.5)' : 'none',
+					filter: mode === Mode.Dark ? 'saturate(0.5)' : 'none',
 					height: '100vh',
 					userSelect: 'none',
 					width: '100%',
@@ -43,7 +49,6 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			>
 				{() => (
 					<Box
-						id='HeroSection'
 						sx={{
 							alignItems: 'center',
 							display: 'flex',
@@ -101,6 +106,6 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 					</Box>
 				)}
 			</WaterWave>
-		</>
+		</Section>
 	);
 };

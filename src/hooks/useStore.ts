@@ -10,7 +10,7 @@ type Store = {
 export const useStore = create<Store>()(
 	persist(
 		set => ({
-			mode: Mode.light,
+			mode: Mode.Light,
 			setMode: mode => set(() => ({ mode })),
 		}),
 		{

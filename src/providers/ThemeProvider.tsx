@@ -14,7 +14,7 @@ export const ThemeProvider = (
 	const { mode } = useChangeMode();
 
 	const theme = useMemo(
-		() => createTheme(mode === Mode.dark ? darkTheme : lightTheme, {}),
+		() => createTheme(mode === Mode.Dark ? darkTheme : lightTheme, {}),
 		[mode],
 	);
 
