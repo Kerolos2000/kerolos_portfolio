@@ -1,3 +1,2 @@
-export * from './AppBar';
-export * from './HeroSection';
+export * from './SectionHeader';
 export * from './ToggleButton';

@@ -34,13 +34,14 @@
     "react-hook-form": "^7.53.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.26.2",
+    "react-router-hash-link": "^2.4.3",
     "react-toastify": "^10.0.5",
     "react-water-wave": "^2.0.1",
     "string-to-color": "^2.2.2",
     "swiper": "^11.1.14",
+    "typed.js": "^2.1.0",
     "zod": "^3.23.8",
-    "zustand": "^5.0.0-rc.2",
-    "typed.js": "^2.1.0"
+    "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",

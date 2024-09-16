@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, HeroSection } from 'src/components';
+import { AboutMe, AppBar, HeroSection } from 'src/features';
 
 export interface HomeProps {}
 
@@ -8,6 +8,7 @@ export const Home: React.FC<HomeProps> = () => {
 		<>
 			<AppBar />
 			<HeroSection />
+			<AboutMe />
 		</>
 	);
 };

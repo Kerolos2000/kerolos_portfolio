@@ -73,7 +73,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 							<Typography
 								sx={{
 									color: theme.palette.secondary.light,
-									fontSize: 'calc(2rem + 2vw);',
+									fontSize: 'calc(2rem + 2vw)',
 									fontWeight: 'bold',
 									textAlign: 'center',
 									textShadow: `0 0 ${theme.spacing(2.5)} ${theme.palette.common.black}`,

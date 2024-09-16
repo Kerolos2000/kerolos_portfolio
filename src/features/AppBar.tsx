@@ -2,7 +2,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {
 	alpha,
 	Box,
-	Button,
 	Container,
 	IconButton,
 	Menu,
@@ -15,12 +14,14 @@ import {
 	useScrollTrigger,
 	useTheme,
 } from '@mui/material';
+import { pascalCase } from 'change-case';
 import { useEffect, useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 import logo from '../assets/logo.png';
-import { ToggleButton } from './ToggleButton';
+import { ToggleButton } from '../components/ToggleButton';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const sections = ['About Me', 'Skills', 'Projects', 'Contact'];
 
 export interface AppBarProps {}
 
@@ -49,6 +50,22 @@ export const AppBar: React.FC<AppBarProps> = props => {
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
 	};
+
+	const MenuItems = () => (
+		<>
+			{sections.map(section => (
+				<MenuItem
+					component={HashLink}
+					key={section}
+					onClick={handleCloseNavMenu}
+					smooth
+					to={`#${pascalCase(section)}`}
+				>
+					<Typography textAlign='center'>{section}</Typography>
+				</MenuItem>
+			))}
+		</>
+	);
 
 	return (
 		<Slide
@@ -111,14 +128,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 									vertical: 'top',
 								}}
 							>
-								{pages.map(page => (
-									<MenuItem
-										key={page}
-										onClick={handleCloseNavMenu}
-									>
-										<Typography textAlign='center'>{page}</Typography>
-									</MenuItem>
-								))}
+								<MenuItems />
 							</Menu>
 						</Box>
 
@@ -144,14 +154,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 								justifyContent: 'center',
 							}}
 						>
-							{pages.map(page => (
-								<Button
-									key={page}
-									sx={{ color: 'white', display: 'block', my: 2 }}
-								>
-									{page}
-								</Button>
-							))}
+							<MenuItems />
 						</Box>
 
 						{/* Settings button */}
