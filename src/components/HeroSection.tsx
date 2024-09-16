@@ -5,15 +5,13 @@ import { Mode } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 import Typed from 'typed.js';
 
-import backgroundDark from '../assets/backgroundDark.jpg';
-import backgroundLight from '../assets/backgroundLight.jpg';
+import background from '../assets/background.jpg';
 export interface HeroSectionProps {}
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
-	const { mode } = useChangeMode();
 	const theme = useTheme();
-
 	const typedRef = useRef(null);
+	const { mode } = useChangeMode();
 
 	useEffect(() => {
 		const typed = new Typed(typedRef.current, {
@@ -27,15 +25,17 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			typed.destroy();
 		};
 	}, []);
+
 	return (
 		<>
 			<WaterWave
-				imageUrl={mode === Mode.dark ? backgroundDark : backgroundLight}
+				imageUrl={background}
 				resolution={500}
 				style={{
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
+					filter: mode === Mode.dark ? 'saturate(0.5)' : 'none',
 					height: '100vh',
 					userSelect: 'none',
 					width: '100%',

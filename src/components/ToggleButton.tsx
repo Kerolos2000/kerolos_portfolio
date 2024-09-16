@@ -2,25 +2,27 @@ import Brightness2Icon from '@mui/icons-material/Brightness2';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Box, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React from 'react';
+import { Mode } from 'src/constant';
+import { useChangeMode } from 'src/hooks';
 export interface ToggleButtonProps {}
 
 export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 	const theme = useTheme();
-	const [isOn, setIsOn] = useState(false);
-	const toggleSwitch = () => setIsOn(!isOn);
+	const { mode, setMode } = useChangeMode();
+	const isDark = mode === Mode.dark;
+
+	const toggleSwitch = () => {
+		setMode(isDark ? Mode.light : Mode.dark);
+	};
 
 	return (
 		<Box
 			className='switch'
-			data-isOn={isOn}
 			onClick={toggleSwitch}
 			sx={{
-				'&[data-isOn="true"]': {
-					justifyContent: 'flex-end',
-				},
 				alignItems: 'center',
-				backgroundColor: isOn
+				backgroundColor: isDark
 					? theme.palette.info.dark
 					: theme.palette.warning.light,
 				borderRadius: theme.shape.borderRadius * 5,
@@ -28,7 +30,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 				cursor: 'pointer',
 				display: 'flex',
 				height: theme.spacing(4),
-				justifyContent: 'flex-start',
+				justifyContent: isDark ? 'flex-end' : 'flex-start',
 				padding: theme.spacing(0.5),
 				transition: 'background-color 0.3s ease',
 				width: theme.spacing(10),
@@ -39,22 +41,28 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 				layout
 				style={{
 					alignItems: 'center',
-					backgroundColor: isOn
-						? theme.palette.common.black
-						: theme.palette.common.white,
+					backgroundColor: isDark
+						? theme.palette.info.main
+						: theme.palette.warning.main,
 					borderRadius: '50%',
 					display: 'flex',
-					height: theme.spacing(4),
+					height: theme.spacing(3),
 					justifyContent: 'center',
-					width: theme.spacing(4),
+					width: theme.spacing(3),
 				}}
 				transition={spring}
 				whileHover={{ rotate: 360, scale: 0.9 }}
 			>
-				{isOn ? (
-					<Brightness2Icon sx={{ color: theme.palette.common.white }} />
+				{isDark ? (
+					<Brightness2Icon
+						fontSize='small'
+						sx={{ color: theme.palette.common.white }}
+					/>
 				) : (
-					<Brightness7Icon />
+					<Brightness7Icon
+						fontSize='small'
+						sx={{ color: theme.palette.common.black }}
+					/>
 				)}
 			</motion.div>
 		</Box>

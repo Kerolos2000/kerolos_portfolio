@@ -10,6 +10,10 @@ export const darkTheme: ThemeOptions = {
 			black: '#000000',
 			white: '#e0e0e0',
 		},
+		info: {
+			dark: '#002e47',
+			main: '#005989',
+		},
 		mode: 'dark',
 		primary: {
 			contrastText: '#e0e0e0',
@@ -59,6 +63,11 @@ export const lightTheme: ThemeOptions = {
 		text: {
 			primary: '#2C3E50',
 			secondary: '#6f797b',
+		},
+		warning: {
+			dark: '#FFB300',
+			light: '#ffe2b7',
+			main: '#ffb13c',
 		},
 	},
 	shape: {
