@@ -20,7 +20,6 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 	return (
 		<Box
 			className='switch'
-			onClick={toggleSwitch}
 			sx={{
 				alignItems: 'center',
 				backgroundColor: isDark
@@ -28,7 +27,6 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 					: theme.palette.warning.light,
 				borderRadius: theme.shape.borderRadius * 5,
 				boxShadow: theme.shadows[5],
-				cursor: 'pointer',
 				display: 'flex',
 				height: theme.spacing(4),
 				justifyContent: isDark ? 'flex-end' : 'flex-start',
@@ -40,19 +38,22 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 			<Motion
 				className='handle'
 				layout
+				onClick={toggleSwitch}
 				style={{
 					alignItems: 'center',
 					backgroundColor: isDark
 						? theme.palette.info.main
 						: theme.palette.warning.main,
 					borderRadius: '50%',
+					cursor: 'pointer',
 					display: 'flex',
 					height: theme.spacing(3),
 					justifyContent: 'center',
 					width: theme.spacing(3),
 				}}
 				transition={spring}
-				whileHover={{ rotate: 360, scale: 0.9 }}
+				whileHover={{ rotate: 360, scale: 1.5 }}
+				whileTap={{ scale: 0.8 }}
 			>
 				{isDark ? (
 					<Brightness2Icon

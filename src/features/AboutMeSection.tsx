@@ -5,6 +5,7 @@ import FmdGoodIcon from '@mui/icons-material/FmdGoodTwoTone';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebookTwoTone';
 import TodayIcon from '@mui/icons-material/TodayTwoTone';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
+import WorkIcon from '@mui/icons-material/WorkTwoTone';
 import { Button, Card, CardContent, Grid2, Typography } from '@mui/material';
 import { differenceInYears } from 'date-fns';
 import React from 'react';
@@ -15,12 +16,13 @@ import {
 	SectionHeader,
 	TypographyWithBorder,
 } from 'src/components';
+import { Sections } from 'src/constant';
 
 export interface AboutMeSectionProps {}
 
 export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 	return (
-		<Section id='about-me'>
+		<Section id={Sections.AboutMe}>
 			<SectionHeader
 				description='Hello! I’m Kerolos Magdy, a frontend developer passionate about
           building clean, responsive, and interactive user interfaces using
@@ -121,6 +123,7 @@ const aboutMeConfig: AboutMeConfig = {
 			icon: TodayIcon,
 			text: differenceInYears(new Date(), new Date(2000, 10, 14)) + ' Years',
 		},
+		{ icon: WorkIcon, text: 'Available to work' },
 		{ cta: 'Download CV' },
 	],
 };
