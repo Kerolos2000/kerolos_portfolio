@@ -1,4 +1,4 @@
-import { Container, ContainerOwnProps } from '@mui/material';
+import { Box, Container, ContainerOwnProps } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 
 export interface SectionProps extends ContainerOwnProps {
@@ -6,17 +6,28 @@ export interface SectionProps extends ContainerOwnProps {
 }
 
 export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
-	const { children, id, maxWidth = 'xl', sx, ...rest } = props;
+	const { children, id, maxWidth = 'lg', sx, ...rest } = props;
 
 	return (
-		<Container
+		<Box
 			component='section'
 			id={id}
-			maxWidth={maxWidth}
-			sx={{ py: 2, ...sx }}
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: 2,
+				overflow: 'hidden',
+				py: 2,
+				...sx,
+			}}
 			{...rest}
 		>
-			{children}
-		</Container>
+			<Container
+				maxWidth={maxWidth}
+				{...rest}
+			>
+				{children}
+			</Container>
+		</Box>
 	);
 };

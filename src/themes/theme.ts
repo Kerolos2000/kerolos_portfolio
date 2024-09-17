@@ -4,7 +4,7 @@ export const darkTheme: ThemeOptions = {
 	palette: {
 		background: {
 			default: '#040705',
-			paper: '#2F3E35',
+			paper: '#000803',
 		},
 		common: {
 			black: '#000000',
@@ -19,7 +19,7 @@ export const darkTheme: ThemeOptions = {
 			contrastText: '#e0e0e0',
 			dark: '#1B2B23',
 			light: '#4A5B51',
-			main: '#2F3E35',
+			main: '#60806d',
 		},
 		secondary: {
 			contrastText: '#ffffff',
@@ -41,7 +41,7 @@ export const lightTheme: ThemeOptions = {
 	palette: {
 		background: {
 			default: '#EDF5E1',
-			paper: '#f1ffff',
+			paper: '#f5ffed',
 		},
 		common: {
 			black: '#2C3E50',

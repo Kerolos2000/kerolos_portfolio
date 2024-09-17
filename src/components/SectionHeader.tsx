@@ -5,18 +5,25 @@ import { DEFAULT_TRANSITION } from 'src/constant';
 import { Motion } from './Motion';
 export interface SectionHeaderProps {
 	title: string;
+	description?: string;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = props => {
-	const { title, ...rest } = props;
+	const { description, title, ...rest } = props;
 	const theme = useTheme();
 
 	return (
-		<Motion whileInView={{ x: [-500, 0] }}>
-			<Box
-				sx={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}
-				{...rest}
-			>
+		<Box
+			sx={{
+				alignItems: 'center',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: 2,
+				justifyContent: 'center',
+			}}
+			{...rest}
+		>
+			<Motion whileInView={{ x: [-500, 0] }}>
 				<Typography
 					sx={{
 						'::before': {
@@ -45,7 +52,24 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 				>
 					{title}
 				</Typography>
-			</Box>
-		</Motion>
+			</Motion>
+
+			{description ? (
+				<Motion
+					style={{ display: 'flex', justifyContent: 'center' }}
+					whileInView={{ x: [-500, 0] }}
+				>
+					<Typography
+						sx={{
+							color: 'text.secondary',
+							textAlign: 'center',
+							width: { md: '90%', xs: '100%' },
+						}}
+					>
+						{description}
+					</Typography>
+				</Motion>
+			) : null}
+		</Box>
 	);
 };
