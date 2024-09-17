@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			disableGutters
 			id={Sections.Hero}
 			maxWidth={false}
-			sx={{ py: 0 }}
+			sx={{ py: 0, transition: 'unset !important' }}
 		>
 			<WaterWave
 				imageUrl={background}
@@ -43,6 +43,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 					backgroundSize: 'cover',
 					filter: mode === Mode.Dark ? 'saturate(0.5)' : 'none',
 					height: '100vh',
+					transition: 'unset !important',
 					userSelect: 'none',
 					width: '100%',
 				}}

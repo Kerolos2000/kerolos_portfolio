@@ -17,7 +17,7 @@ import {
 import { pascalCase } from 'change-case';
 import { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { Sections } from 'src/constant';
+import { DEFAULT_TRANSITION, Sections } from 'src/constant';
 
 import logo from '../assets/logo.png';
 import { ToggleButton } from '../components/ToggleButton';
@@ -84,6 +84,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 						scrollY === 0
 							? 'transparent'
 							: alpha(theme.palette.primary.dark, 0.3),
+					transition: DEFAULT_TRANSITION,
 				}}
 			>
 				<Container maxWidth='xl'>

@@ -7,3 +7,4 @@ export const MAX_Z_INDEX = 10000;
 export const APP_BAR_HEIGHT = 64;
 export const DEFAULT_ICON_SIZE = 32;
 export const DEFAULT_ICON = ArrowDropDown;
+export const DEFAULT_TRANSITION = 'all 0.5s ease';

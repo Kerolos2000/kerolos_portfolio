@@ -1,10 +1,11 @@
 import Brightness2Icon from '@mui/icons-material/Brightness2';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { Box, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
 import React from 'react';
-import { Mode } from 'src/constant';
+import { DEFAULT_TRANSITION, Mode } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
+
+import { Motion } from './Motion';
 export interface ToggleButtonProps {}
 
 export const ToggleButton: React.FC<ToggleButtonProps> = () => {
@@ -32,11 +33,11 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 				height: theme.spacing(4),
 				justifyContent: isDark ? 'flex-end' : 'flex-start',
 				padding: theme.spacing(0.5),
-				transition: 'background-color 0.3s ease',
+				transition: DEFAULT_TRANSITION,
 				width: theme.spacing(10),
 			}}
 		>
-			<motion.div
+			<Motion
 				className='handle'
 				layout
 				style={{
@@ -64,7 +65,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 						sx={{ color: theme.palette.common.black }}
 					/>
 				)}
-			</motion.div>
+			</Motion>
 		</Box>
 	);
 };

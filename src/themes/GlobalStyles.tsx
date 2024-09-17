@@ -23,7 +23,11 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 					backgroundColor: theme.palette.primary.main,
 				},
 				body: {
-					overFlowX: 'hidden',
+					overflowX: 'hidden',
+					transition: 'color 0.5s ease , background-color 0.5s ease',
+				},
+				html: {
+					scrollBehavior: 'smooth',
 				},
 			}}
 		/>
