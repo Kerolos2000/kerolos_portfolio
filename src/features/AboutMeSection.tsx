@@ -39,7 +39,7 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 				{Object.entries(aboutMeConfig).map(([key, items]) => (
 					<Grid2
 						key={key}
-						size={{ lg: 4, xs: 6 }}
+						size={{ lg: 4, md: 6, xs: 12 }}
 					>
 						<Card
 							sx={{

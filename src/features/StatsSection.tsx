@@ -40,7 +40,7 @@ export const StatsSection: React.FC<StatsSectionProps> = () => {
 					return (
 						<Grid2
 							key={JSON.stringify(counter)}
-							size={{ lg: 3, xs: 6 }}
+							size={{ lg: 3, md: 6, xs: 12 }}
 						>
 							<Counter
 								count={count}
