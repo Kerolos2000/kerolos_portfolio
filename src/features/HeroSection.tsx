@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React, { useEffect, useRef } from 'react';
 import WaterWave from 'react-water-wave';
 import { Section } from 'src/components';
@@ -13,6 +13,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 	const theme = useTheme();
 	const typedRef = useRef(null);
 	const { mode } = useChangeMode();
+	const isMd = useMediaQuery(theme.breakpoints.down('md'));
 
 	useEffect(() => {
 		const typed = new Typed(typedRef.current, {
@@ -36,6 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 		>
 			<WaterWave
 				imageUrl={background}
+				interactive={!isMd}
 				resolution={500}
 				style={{
 					backgroundPosition: 'center',

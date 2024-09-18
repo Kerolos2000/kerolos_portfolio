@@ -26,7 +26,12 @@ export const Counter: React.FC<CounterProps> = props => {
 
 	return (
 		<Motion onViewportEnter={startAnimation}>
-			<TypographyWithBorder variant='h6'>{title}</TypographyWithBorder>
+			<TypographyWithBorder
+				className='text-wrap'
+				variant='h6'
+			>
+				{title}
+			</TypographyWithBorder>
 			<HStack sx={{ alignItems: 'center' }}>
 				<Typography
 					color='secondary'

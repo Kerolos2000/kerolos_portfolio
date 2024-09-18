@@ -23,13 +23,13 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 			}}
 			{...rest}
 		>
-			<Motion whileInView={{ x: [-500, 0] }}>
+			<Motion whileInView={{ x: [-100, 0] }}>
 				<Typography
 					sx={{
 						'::before': {
 							backgroundColor: theme.palette.primary.main,
 							borderRadius: theme.shape.borderRadius,
-							bottom: 0,
+							bottom: theme.spacing(-1),
 							content: '""',
 							height: theme.spacing(1),
 							left: 0,
@@ -62,7 +62,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 						justifyContent: 'center',
 						width: '100%',
 					}}
-					whileInView={{ x: [-500, 0] }}
+					whileInView={{ x: [-100, 0] }}
 				>
 					<Typography
 						sx={{

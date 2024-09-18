@@ -13,6 +13,13 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 					background: theme.palette.secondary.light,
 					color: theme.palette.primary.main,
 				},
+				'.text-wrap': {
+					display: 'inline-block !important',
+					overflow: 'hidden',
+					textOverflow: 'ellipsis',
+					whiteSpace: 'nowrap',
+					width: '100%',
+				},
 				'*::-webkit-scrollbar': {
 					width: theme.spacing(1.5),
 				},
