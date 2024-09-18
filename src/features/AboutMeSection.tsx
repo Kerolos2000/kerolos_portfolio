@@ -16,7 +16,7 @@ import {
 	SectionHeader,
 	TypographyWithBorder,
 } from 'src/components';
-import { Sections } from 'src/constant';
+import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
 
 export interface AboutMeSectionProps {}
 
@@ -30,48 +30,53 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
           and continually learning new technologies.'
 				title='About Me'
 			/>
-
 			<Grid2
 				container
-				spacing={4}
-				sx={{ mt: 4 }}
+				spacing={2}
 			>
 				{Object.entries(aboutMeConfig).map(([key, items]) => (
 					<Grid2
 						key={key}
 						size={{ lg: 4, md: 6, xs: 12 }}
 					>
-						<Card
-							sx={{
-								height: '100%',
-							}}
+						<Motion
+							style={{ height: '100%' }}
+							whileInView={DEFAULT_MOTION_BODY}
 						>
-							<CardContent
+							<Card
 								sx={{
-									display: 'flex',
-									flexDirection: 'column',
-									gap: 1,
+									height: '100%',
 								}}
 							>
-								<TypographyWithBorder variant='h4'>{key}</TypographyWithBorder>
-								{items.map((item: AboutMeItem) => {
-									const { cta, icon: Icon, text } = item;
-									return (
-										<HStack key={JSON.stringify(item)}>
-											{Icon ? <Icon /> : null}
-											{text ? (
-												<Typography variant='body1'>{text}</Typography>
-											) : null}
-											{cta ? (
-												<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
-													<Button variant='outlined'>{cta}</Button>
-												</Motion>
-											) : null}
-										</HStack>
-									);
-								})}
-							</CardContent>
-						</Card>
+								<CardContent
+									sx={{
+										display: 'flex',
+										flexDirection: 'column',
+										gap: 1,
+									}}
+								>
+									<TypographyWithBorder variant='h4'>
+										{key}
+									</TypographyWithBorder>
+									{items.map((item: AboutMeItem) => {
+										const { cta, icon: Icon, text } = item;
+										return (
+											<HStack key={JSON.stringify(item)}>
+												{Icon ? <Icon /> : null}
+												{text ? (
+													<Typography variant='body1'>{text}</Typography>
+												) : null}
+												{cta ? (
+													<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
+														<Button variant='outlined'>{cta}</Button>
+													</Motion>
+												) : null}
+											</HStack>
+										);
+									})}
+								</CardContent>
+							</Card>
+						</Motion>
 					</Grid2>
 				))}
 			</Grid2>

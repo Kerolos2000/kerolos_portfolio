@@ -33,7 +33,6 @@ export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
 						flexDirection: 'column',
 						gap: theme.spacing(2),
 					}}
-					whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 				>
 					{children}
 				</Motion>

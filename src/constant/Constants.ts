@@ -8,3 +8,6 @@ export const APP_BAR_HEIGHT = 64;
 export const DEFAULT_ICON_SIZE = 32;
 export const DEFAULT_ICON = ArrowDropDown;
 export const DEFAULT_TRANSITION = 'all 0.5s ease';
+export const DEFAULT_MOTION_BODY = { rotate: [-5, 0], scale: [1.1, 1] };
+export const DEFAULT_MOTION_LEFT = { x: [-100, 0] };
+export const DEFAULT_MOTION_RIGHT = { x: [100, 0] };

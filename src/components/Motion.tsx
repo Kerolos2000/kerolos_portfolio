@@ -7,17 +7,18 @@ export const Motion: React.FC<PropsWithChildren<MotionProps>> = props => {
 	const {
 		children,
 		transition = {
-			mass: 0.5,
-			repeat: 0,
-			stiffness: 50,
+			mass: 1.5,
+			stiffness: 150,
 			type: 'spring',
 		},
+		whileInView,
 		...rest
 	} = props;
 
 	return (
 		<motion.div
 			transition={transition}
+			whileInView={{ ...(whileInView as object), transition }}
 			{...rest}
 		>
 			{children}

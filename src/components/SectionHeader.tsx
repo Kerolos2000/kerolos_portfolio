@@ -1,6 +1,10 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import React from 'react';
-import { DEFAULT_TRANSITION } from 'src/constant';
+import {
+	DEFAULT_MOTION_LEFT,
+	DEFAULT_MOTION_RIGHT,
+	DEFAULT_TRANSITION,
+} from 'src/constant';
 
 import { Motion } from './Motion';
 export interface SectionHeaderProps {
@@ -23,7 +27,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 			}}
 			{...rest}
 		>
-			<Motion whileInView={{ x: [-100, 0] }}>
+			<Motion whileInView={DEFAULT_MOTION_LEFT}>
 				<Typography
 					sx={{
 						'::before': {
@@ -62,7 +66,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 						justifyContent: 'center',
 						width: '100%',
 					}}
-					whileInView={{ x: [-100, 0] }}
+					whileInView={DEFAULT_MOTION_RIGHT}
 				>
 					<Typography
 						sx={{

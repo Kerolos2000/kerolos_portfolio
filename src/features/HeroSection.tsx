@@ -40,6 +40,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 				interactive={!isMd}
 				resolution={500}
 				style={{
+					backgroundImage: `url(${background})`,
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',

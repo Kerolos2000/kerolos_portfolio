@@ -51,7 +51,6 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 					justifyContent: 'center',
 					width: theme.spacing(3),
 				}}
-				transition={spring}
 				whileHover={{ rotate: 360, scale: 1.5 }}
 				whileTap={{ scale: 0.8 }}
 			>
@@ -69,10 +68,4 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 			</Motion>
 		</Box>
 	);
-};
-
-const spring = {
-	damping: 25,
-	stiffness: 250,
-	type: 'spring',
 };
