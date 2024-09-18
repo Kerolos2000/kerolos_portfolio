@@ -3,4 +3,5 @@ export enum Sections {
 	AboutMe = 'AboutMe',
 	Projects = 'Projects',
 	Contact = 'Contact',
+	Counter = 'Counter',
 }

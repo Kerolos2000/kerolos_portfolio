@@ -56,7 +56,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = props => {
 
 			{description ? (
 				<Motion
-					style={{ display: 'flex', justifyContent: 'center' }}
+					style={{
+						display: 'flex',
+						flex: 1,
+						justifyContent: 'center',
+						width: '100%',
+					}}
 					whileInView={{ x: [-500, 0] }}
 				>
 					<Typography

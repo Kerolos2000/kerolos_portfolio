@@ -6,7 +6,12 @@ export interface MotionProps extends React.ComponentProps<typeof motion.div> {}
 export const Motion: React.FC<PropsWithChildren<MotionProps>> = props => {
 	const {
 		children,
-		transition = { mass: 1, stiffness: 100, type: 'spring' },
+		transition = {
+			mass: 0.5,
+			repeat: 0,
+			stiffness: 50,
+			type: 'spring',
+		},
 		...rest
 	} = props;
 

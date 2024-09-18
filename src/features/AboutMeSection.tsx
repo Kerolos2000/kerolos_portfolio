@@ -30,61 +30,51 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
           and continually learning new technologies.'
 				title='About Me'
 			/>
-			<Motion whileInView={{ scale: [0, 1] }}>
-				<Grid2
-					container
-					spacing={4}
-					sx={{ mt: 4 }}
-				>
-					{Object.entries(aboutMeConfig).map(([key, items]) => (
-						<Grid2
-							key={key}
-							size={{ lg: 4, md: 6, xs: 12 }}
+
+			<Grid2
+				container
+				spacing={4}
+				sx={{ mt: 4 }}
+			>
+				{Object.entries(aboutMeConfig).map(([key, items]) => (
+					<Grid2
+						key={key}
+						size={{ lg: 4, xs: 6 }}
+					>
+						<Card
+							sx={{
+								height: '100%',
+							}}
 						>
-							<Motion
-								style={{
-									height: '100%',
+							<CardContent
+								sx={{
+									display: 'flex',
+									flexDirection: 'column',
+									gap: 1,
 								}}
-								whileHover={{ scale: 1.1 }}
 							>
-								<Card
-									sx={{
-										height: '100%',
-									}}
-								>
-									<CardContent
-										sx={{
-											display: 'flex',
-											flexDirection: 'column',
-											gap: 1,
-										}}
-									>
-										<TypographyWithBorder variant='h4'>
-											{key}
-										</TypographyWithBorder>
-										{items.map((item: AboutMeItem) => {
-											const { cta, icon: Icon, text } = item;
-											return (
-												<HStack key={JSON.stringify(item)}>
-													{Icon ? <Icon /> : null}
-													{text ? (
-														<Typography variant='body1'>{text}</Typography>
-													) : null}
-													{cta ? (
-														<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
-															<Button variant='outlined'>{cta}</Button>
-														</Motion>
-													) : null}
-												</HStack>
-											);
-										})}
-									</CardContent>
-								</Card>
-							</Motion>
-						</Grid2>
-					))}
-				</Grid2>
-			</Motion>
+								<TypographyWithBorder variant='h4'>{key}</TypographyWithBorder>
+								{items.map((item: AboutMeItem) => {
+									const { cta, icon: Icon, text } = item;
+									return (
+										<HStack key={JSON.stringify(item)}>
+											{Icon ? <Icon /> : null}
+											{text ? (
+												<Typography variant='body1'>{text}</Typography>
+											) : null}
+											{cta ? (
+												<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
+													<Button variant='outlined'>{cta}</Button>
+												</Motion>
+											) : null}
+										</HStack>
+									);
+								})}
+							</CardContent>
+						</Card>
+					</Grid2>
+				))}
+			</Grid2>
 		</Section>
 	);
 };
