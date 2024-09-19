@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { DEFAULT_TRANSITION, Sections } from 'src/constant';
 
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 import { ToggleButton } from '../components';
 
 const sections = ['About Me', 'Skills', 'Projects', 'Contact'];

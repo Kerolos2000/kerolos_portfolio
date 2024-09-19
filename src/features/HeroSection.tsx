@@ -6,7 +6,8 @@ import { Mode, Sections } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 import Typed from 'typed.js';
 
-import background from '../assets/background.jpg';
+import background from '../assets/background.webp';
+
 export interface HeroSectionProps {}
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {

@@ -80,7 +80,7 @@ export const ParallaxScroll: React.FC<
 										src={src}
 										sx={{
 											aspectRatio: '1/1',
-											height: theme.spacing(10),
+											height: theme.spacing(12),
 											marginRight: theme.spacing(2),
 											objectFit: 'contain',
 										}}
