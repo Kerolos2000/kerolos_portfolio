@@ -79,7 +79,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 									target='_blank'
 									to={link}
 								>
-									<Card>
+									<Card
+										sx={{ '&:hover .image': { backgroundPosition: 'bottom' } }}
+									>
 										<CardContent
 											sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
 										>
@@ -87,9 +89,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 												{title}
 											</TypographyWithBorder>
 											<CardMedia
+												className='image'
 												image={image}
 												sx={{
-													'&:hover': { backgroundPosition: 'bottom' },
 													backgroundPosition: 'top',
 													backgroundSize: 'cover',
 													height: theme.spacing(50),
