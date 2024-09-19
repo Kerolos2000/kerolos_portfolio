@@ -25,7 +25,7 @@ interface ParallaxScrollProps {
 export const ParallaxScroll: React.FC<
 	PropsWithChildren<ParallaxScrollProps>
 > = props => {
-	const { baseVelocity = 100, children, images } = props;
+	const { baseVelocity, children, images } = props;
 
 	const theme = useTheme();
 	const baseX = useMotionValue(0);
@@ -69,20 +69,24 @@ export const ParallaxScroll: React.FC<
 						key={index}
 					>
 						{images ? (
-							images?.map(image => (
-								<Box
-									alt={image.alt}
-									component='img'
-									key={JSON.stringify(image)}
-									src={image.src}
-									sx={{
-										aspectRatio: '1/1',
-										height: theme.spacing(10),
-										marginRight: theme.spacing(2),
-										objectFit: 'contain',
-									}}
-								/>
-							))
+							images?.map(image => {
+								const { alt, src } = image;
+								return (
+									<Box
+										alt={alt}
+										component='img'
+										key={JSON.stringify(image)}
+										loading='lazy'
+										src={src}
+										sx={{
+											aspectRatio: '1/1',
+											height: theme.spacing(10),
+											marginRight: theme.spacing(2),
+											objectFit: 'contain',
+										}}
+									/>
+								);
+							})
 						) : (
 							<Box
 								component='span'

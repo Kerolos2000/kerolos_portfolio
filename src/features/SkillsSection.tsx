@@ -7,7 +7,7 @@ import axios from '../assets/axios.png';
 import Bootstrap from '../assets/Bootstrap.png';
 import casl from '../assets/casl.png';
 import css from '../assets/css.png';
-import figma from '../assets/figma.png';
+import figma from '../assets/Figma.png';
 import framerMotion from '../assets/framer-motion.webp';
 import framer from '../assets/framer.png';
 import git from '../assets/git.png';
@@ -104,11 +104,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = () => {
 				}}
 			>
 				<ParallaxScroll
-					baseVelocity={-5}
+					baseVelocity={-2}
 					images={imagesLeft}
 				/>
 				<ParallaxScroll
-					baseVelocity={5}
+					baseVelocity={2}
 					images={imagesRight}
 				/>
 			</Box>
