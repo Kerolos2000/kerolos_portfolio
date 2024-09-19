@@ -4,6 +4,7 @@ import {
 	AboutMeSection,
 	AppBar,
 	HeroSection,
+	ProjectsSection,
 	SkillsSection,
 	StatsSection,
 } from 'src/features';
@@ -19,6 +20,7 @@ export const Home: React.FC<HomeProps> = () => {
 			<AboutMeSection />
 			<StatsSection />
 			<SkillsSection />
+			<ProjectsSection />
 		</>
 	);
 };

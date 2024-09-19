@@ -129,10 +129,6 @@ Contributions are welcome! To contribute:
 4. Push to the branch: \`git push origin feature-name\`.
 5. Submit a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
 ---
 
 **Kerolos Portfolio** is built with ❤️ by Kerolos.

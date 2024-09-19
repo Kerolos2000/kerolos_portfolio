@@ -22,7 +22,12 @@ import { DEFAULT_TRANSITION, Sections } from 'src/constant';
 import logo from '../assets/logo.webp';
 import { ToggleButton } from '../components';
 
-const sections = ['About Me', 'Skills', 'Projects', 'Contact'];
+const sections = [
+	Sections.AboutMe,
+	Sections.Skills,
+	Sections.Projects,
+	Sections.Contact,
+];
 
 export interface AppBarProps {}
 
