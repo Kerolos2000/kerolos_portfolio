@@ -16,8 +16,9 @@ import {
 } from '@mui/material';
 import { pascalCase } from 'change-case';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { DEFAULT_TRANSITION, Sections } from 'src/constant';
+import { DEFAULT_TRANSITION, Routes, Sections } from 'src/constant';
 
 import logo from '../assets/logo.webp';
 import { ToggleButton } from '../components';
@@ -33,6 +34,7 @@ export interface AppBarProps {}
 
 export const AppBar: React.FC<AppBarProps> = props => {
 	const theme = useTheme();
+	const { pathname } = useLocation();
 	const trigger = useScrollTrigger();
 	const [scrollY, setScrollY] = useState(0);
 
@@ -65,7 +67,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 					key={section}
 					onClick={handleCloseNavMenu}
 					smooth
-					to={`#${pascalCase(section)}`}
+					to={`/#${pascalCase(section)}`}
 				>
 					<Typography textAlign='center'>{section}</Typography>
 				</MenuItem>
@@ -86,7 +88,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 				sx={{
 					backdropFilter: scrollY === 0 ? 'none' : `blur(${theme.spacing(1)})`,
 					backgroundColor:
-						scrollY === 0
+						scrollY === 0 && pathname === Routes.Home
 							? 'transparent'
 							: alpha(theme.palette.primary.dark, 0.3),
 					transition: DEFAULT_TRANSITION,
@@ -99,7 +101,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 							component={HashLink}
 							onClick={handleCloseNavMenu}
 							smooth
-							to={`#${Sections.Hero}`}
+							to={`/#${Sections.Hero}`}
 						>
 							<Box
 								alt='logo'
@@ -152,7 +154,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 								component={HashLink}
 								onClick={handleCloseNavMenu}
 								smooth
-								to={`#${Sections.Hero}`}
+								to={`/#${Sections.Hero}`}
 							>
 								<Box
 									alt='logo'

@@ -1,8 +1,6 @@
 import React from 'react';
-import { Loader } from 'src/components';
 import {
 	AboutMeSection,
-	AppBar,
 	HeroSection,
 	ProjectsSection,
 	SkillsSection,
@@ -14,8 +12,6 @@ export interface HomeProps {}
 export const Home: React.FC<HomeProps> = () => {
 	return (
 		<>
-			<Loader />
-			<AppBar />
 			<HeroSection />
 			<AboutMeSection />
 			<StatsSection />

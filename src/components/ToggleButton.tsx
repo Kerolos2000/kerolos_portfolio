@@ -1,5 +1,5 @@
-import Brightness2Icon from '@mui/icons-material/Brightness2';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Brightness2Icon from '@mui/icons-material/Brightness2Outlined';
+import Brightness7Icon from '@mui/icons-material/Brightness7Outlined';
 import { Box, useTheme } from '@mui/material';
 import React from 'react';
 import { DEFAULT_TRANSITION, Mode } from 'src/constant';

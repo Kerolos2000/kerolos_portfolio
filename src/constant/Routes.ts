@@ -6,3 +6,9 @@ export enum Sections {
 	Counter = 'Counter',
 	Skills = 'Skills',
 }
+
+export enum Routes {
+	Home = '/',
+	Projects = '/projects',
+	NotFound = '*',
+}

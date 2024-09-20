@@ -8,7 +8,7 @@ import {
 	useTheme,
 } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	Motion,
 	Section,
@@ -18,6 +18,7 @@ import {
 import {
 	DEFAULT_MOTION_BODY,
 	DEFAULT_TRANSITION,
+	Routes,
 	Sections,
 } from 'src/constant';
 
@@ -53,6 +54,7 @@ const projects: Project[] = [
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 	const theme = useTheme();
+	const navigate = useNavigate();
 
 	return (
 		<Section id={Sections.Projects}>
@@ -107,7 +109,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 				})}
 			</Grid2>
 			<Box sx={{ display: 'flex', justifyContent: 'center' }}>
-				<Button variant='outlined'>All Projects</Button>
+				<Motion whileHover={{ scale: 1.1 }}>
+					<Button
+						onClick={() => navigate(Routes.Projects)}
+						size='large'
+						variant='contained'
+					>
+						All Projects
+					</Button>
+				</Motion>
 			</Box>
 		</Section>
 	);

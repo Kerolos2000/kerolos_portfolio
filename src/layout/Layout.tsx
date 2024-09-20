@@ -1,16 +1,16 @@
-import { Box, CssBaseline } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { ScrollToTopButton } from 'src/components';
-import { GlobalStyles } from 'src/themes';
+import { Loader, ScrollToTopButton } from 'src/components';
+import { AppBar } from 'src/features';
 
 export interface LayoutProps {}
 
 export const Layout: React.FC<LayoutProps> = () => {
 	return (
 		<>
-			<CssBaseline />
-			<GlobalStyles />
+			<Loader />
+			<ScrollToTopButton />
 			<Box
 				sx={{
 					display: 'flex',
@@ -21,8 +21,8 @@ export const Layout: React.FC<LayoutProps> = () => {
 					width: '100%',
 				}}
 			>
+				<AppBar />
 				<Outlet />
-				<ScrollToTopButton />
 			</Box>
 		</>
 	);
