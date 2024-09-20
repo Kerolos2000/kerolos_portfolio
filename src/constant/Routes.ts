@@ -5,6 +5,7 @@ export enum Sections {
 	Contact = 'Contact',
 	Counter = 'Counter',
 	Skills = 'Skills',
+	Footer = 'Footer',
 }
 
 export enum Routes {

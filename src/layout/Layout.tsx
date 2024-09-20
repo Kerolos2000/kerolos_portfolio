@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { Loader, ScrollToTopButton } from 'src/components';
-import { AppBar } from 'src/features';
+import { AppBar, Footer } from 'src/features';
 
 export interface LayoutProps {}
 
@@ -16,6 +16,7 @@ export const Layout: React.FC<LayoutProps> = () => {
 					display: 'flex',
 					flexDirection: 'column',
 					flexGrow: 1,
+					justifyContent: 'space-between',
 					minHeight: '100vh',
 					overflowX: 'hidden',
 					width: '100%',
@@ -23,6 +24,7 @@ export const Layout: React.FC<LayoutProps> = () => {
 			>
 				<AppBar />
 				<Outlet />
+				<Footer />
 			</Box>
 		</>
 	);

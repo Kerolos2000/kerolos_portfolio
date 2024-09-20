@@ -83,10 +83,13 @@ export const AppBar: React.FC<AppBarProps> = props => {
 			{...props}
 		>
 			<MuiAppBar
-				elevation={scrollY === 0 ? 0 : 2}
+				elevation={pathname === Routes.Home ? 0 : scrollY === 0 ? 0 : 2}
 				position='fixed'
 				sx={{
-					backdropFilter: scrollY === 0 ? 'none' : `blur(${theme.spacing(1)})`,
+					backdropFilter:
+						scrollY === 0 && pathname === Routes.Home
+							? 'none'
+							: `blur(${theme.spacing(1)})`,
 					backgroundColor:
 						scrollY === 0 && pathname === Routes.Home
 							? 'transparent'

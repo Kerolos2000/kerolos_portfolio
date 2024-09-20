@@ -14,12 +14,12 @@ export const router = createBrowserRouter([
 				element: <Projects />,
 				path: Routes.Projects,
 			},
+			{
+				element: <NotFound />,
+				path: Routes.NotFound,
+			},
 		],
 		element: <Layout />,
 		path: Routes.Home,
-	},
-	{
-		element: <NotFound />,
-		path: Routes.NotFound,
 	},
 ]);
