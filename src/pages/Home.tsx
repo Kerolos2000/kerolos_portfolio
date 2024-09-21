@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	AboutMeSection,
+	CertificatesSection,
 	HeroSection,
 	ProjectsSection,
 	SkillsSection,
@@ -17,6 +18,7 @@ export const Home: React.FC<HomeProps> = () => {
 			<StatsSection />
 			<SkillsSection />
 			<ProjectsSection />
+			<CertificatesSection />
 		</>
 	);
 };
