@@ -23,6 +23,7 @@ import {
 } from 'src/constant';
 
 import eCommerce from '../assets/e-commerce.webp';
+import innova from '../assets/innova.webp';
 import noxe from '../assets/noxe.webp';
 import portfolio from '../assets/sara-portfolio.webp';
 
@@ -35,6 +36,11 @@ interface Project {
 }
 
 const projects: Project[] = [
+	{
+		image: innova,
+		link: 'https://innova.com.eg/',
+		title: 'Innova',
+	},
 	{
 		image: portfolio,
 		link: 'https://sara-portfolio-sigma.vercel.app/',
@@ -72,7 +78,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 					return (
 						<Grid2
 							key={JSON.stringify(project)}
-							size={{ lg: 4, md: 6, xs: 12 }}
+							size={{ lg: 3, md: 6, xs: 12 }}
 						>
 							<Motion whileInView={DEFAULT_MOTION_BODY}>
 								<Box
