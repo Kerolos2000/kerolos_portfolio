@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 		return () => {
 			typed.destroy();
 		};
-	}, []);
+	}, [mode]);
 
 	const Content = () => {
 		return (

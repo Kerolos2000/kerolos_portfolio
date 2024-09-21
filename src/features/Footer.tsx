@@ -14,7 +14,8 @@ import {
 	useTheme,
 } from '@mui/material';
 import { HashLink } from 'react-router-hash-link';
-import { Routes, Sections } from 'src/constant';
+import { Mode, Routes, Sections } from 'src/constant';
+import { useChangeMode } from 'src/hooks';
 
 import logo from '../assets/logo.webp';
 
@@ -56,6 +57,8 @@ export interface FooterProps {}
 
 export const Footer: React.FC<FooterProps> = () => {
 	const theme = useTheme();
+	const { mode } = useChangeMode();
+
 	return (
 		<Box
 			component='footer'
@@ -80,7 +83,11 @@ export const Footer: React.FC<FooterProps> = () => {
 							component='img'
 							src={logo}
 							sx={{
-								display: { filter: 'invert(1)', md: 'flex', xs: 'none' },
+								display: {
+									filter: Mode.Light === mode ? 'invert(1)' : 'none',
+									md: 'flex',
+									xs: 'none',
+								},
 								width: theme.spacing(10),
 							}}
 						/>

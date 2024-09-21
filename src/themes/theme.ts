@@ -4,7 +4,7 @@ export const darkTheme: ThemeOptions = {
 	palette: {
 		background: {
 			default: '#040705',
-			paper: '#000803',
+			paper: '#080e0a',
 		},
 		common: {
 			black: '#000000',

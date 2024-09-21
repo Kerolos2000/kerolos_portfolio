@@ -14,7 +14,7 @@ import axios from 'axios';
 import { noCase } from 'change-case';
 import { useQuery } from 'react-query';
 import { HStack, Motion, Section, SectionHeader } from 'src/components';
-import { Routes } from 'src/constant';
+import { DEFAULT_TRANSITION, Routes } from 'src/constant';
 import { useNotify } from 'src/hooks';
 import stringToColor from 'string-to-color';
 
@@ -82,13 +82,26 @@ export const Projects: React.FC<ProjectsProps> = () => {
 						{data?.data.map((element: Project) => {
 							const { homepage, id, name, stargazers_count } = element;
 							return (
-								<MasonryItem key={id}>
+								<MasonryItem
+									key={id}
+									sx={{
+										':hover .project-card': {
+											backgroundColor: alpha(stringToColor(name), 0.2),
+										},
+									}}
+								>
 									<Motion
-										style={{ height: '100%' }}
-										whileHover={{ scale: 1.1 }}
+										style={{
+											height: '100%',
+										}}
+										whileHover={{ scale: 1.05 }}
 									>
 										<Card
-											sx={{ backgroundColor: alpha(stringToColor(name), 0.1) }}
+											className='project-card'
+											sx={{
+												backgroundColor: alpha(stringToColor(name), 0.1),
+												transition: DEFAULT_TRANSITION,
+											}}
 										>
 											<CardContent>
 												<HStack justifyContent={'space-between'}>

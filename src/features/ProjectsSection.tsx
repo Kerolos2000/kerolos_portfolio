@@ -78,7 +78,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 					return (
 						<Grid2
 							key={JSON.stringify(project)}
-							size={{ lg: 3, md: 6, xs: 12 }}
+							size={{ lg: 4, md: 6, xl: 3, xs: 12 }}
 						>
 							<Motion whileInView={DEFAULT_MOTION_BODY}>
 								<Box
