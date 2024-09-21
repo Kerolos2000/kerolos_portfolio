@@ -9,13 +9,16 @@ export function useNotify() {
 	const { mode } = useChangeMode();
 
 	const defaultOptions: ToastOptions = {
-		autoClose: 30000,
+		autoClose: 3000,
 		closeOnClick: true,
 		draggable: true,
 		hideProgressBar: false,
 		pauseOnHover: true,
 		position: 'bottom-left',
-		style: { backgroundColor: theme.palette.background.paper },
+		style: {
+			backgroundColor: theme.palette.background.paper,
+			color: theme.palette.text.primary,
+		},
 		theme: mode,
 	};
 

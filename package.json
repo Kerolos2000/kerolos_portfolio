@@ -28,6 +28,7 @@
     "change-case": "^5.4.4",
     "chart.js": "^4.4.4",
     "date-fns": "^4.1.0",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.5.6",
     "i18next": "^23.15.1",
     "lodash": "^4.17.21",
