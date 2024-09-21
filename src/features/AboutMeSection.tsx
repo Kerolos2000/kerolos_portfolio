@@ -8,7 +8,7 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import WorkIcon from '@mui/icons-material/WorkTwoTone';
 import { Button, Card, CardContent, Grid2, Typography } from '@mui/material';
 import { differenceInYears } from 'date-fns';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
 	HStack,
 	Motion,
@@ -17,6 +17,8 @@ import {
 	TypographyWithBorder,
 } from 'src/components';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
+
+import cv from '../assets/Kerolos-Magdy-Resume.pdf';
 
 export interface AboutMeSectionProps {}
 
@@ -68,7 +70,7 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 												) : null}
 												{cta ? (
 													<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
-														<Button variant='outlined'>{cta}</Button>
+														{cta}
 													</Motion>
 												) : null}
 											</HStack>
@@ -87,7 +89,8 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 export interface AboutMeItem {
 	icon?: SvgIconComponent;
 	text?: string;
-	cta?: string;
+	cta?: ReactElement;
+	onClick?: () => void;
 }
 
 export interface AboutMeConfig {
@@ -119,6 +122,16 @@ const aboutMeConfig: AboutMeConfig = {
 			text: differenceInYears(new Date(), new Date(2000, 10, 14)) + ' Years',
 		},
 		{ icon: WorkIcon, text: 'Available to work' },
-		{ cta: 'Download CV' },
+		{
+			cta: (
+				<Button
+					download
+					href={cv}
+					variant='outlined'
+				>
+					Download CV
+				</Button>
+			),
+		},
 	],
 };
