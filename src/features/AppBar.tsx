@@ -18,17 +18,11 @@ import { pascalCase } from 'change-case';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { AppBarLinks } from 'src/config';
 import { DEFAULT_TRANSITION, Routes, Sections } from 'src/constant';
 
 import logo from '../assets/logo.webp';
 import { ToggleButton } from '../components';
-
-const sections = [
-	Sections.AboutMe,
-	Sections.Skills,
-	Sections.Projects,
-	Sections.Contact,
-];
 
 export interface AppBarProps {}
 
@@ -61,15 +55,15 @@ export const AppBar: React.FC<AppBarProps> = props => {
 
 	const MenuItems = () => (
 		<>
-			{sections.map(section => (
+			{AppBarLinks.map(link => (
 				<MenuItem
 					component={HashLink}
-					key={section}
+					key={link}
 					onClick={handleCloseNavMenu}
 					smooth
-					to={`/#${pascalCase(section)}`}
+					to={`/#${pascalCase(link)}`}
 				>
-					<Typography textAlign='center'>{section}</Typography>
+					<Typography textAlign='center'>{link}</Typography>
 				</MenuItem>
 			))}
 		</>
@@ -94,6 +88,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 						scrollY === 0 && pathname === Routes.Home
 							? 'transparent'
 							: alpha(theme.palette.primary.dark, 0.3),
+					overflow: 'hidden',
 					transition: DEFAULT_TRANSITION,
 				}}
 			>

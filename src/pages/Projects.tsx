@@ -78,6 +78,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
 					<Masonry
 						columns={{ lg: 4, md: 3, sm: 2, xs: 1 }}
 						spacing={2}
+						sx={{ margin: { xs: '0' } }}
 					>
 						{data?.data.map((element: Project) => {
 							const { homepage, id, name, stargazers_count } = element;

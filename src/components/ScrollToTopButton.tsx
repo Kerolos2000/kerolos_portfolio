@@ -2,6 +2,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import { Fab, useTheme } from '@mui/material';
 import { useScroll } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import { DEFAULT_MOTION_SCALE } from 'src/constant';
 
 import { Motion } from './Motion';
 
@@ -38,7 +39,7 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 				right: theme.spacing(3),
 				zIndex: 1000,
 			}}
-			whileHover={{ scale: 1.1 }}
+			whileHover={DEFAULT_MOTION_SCALE}
 		>
 			<Fab
 				aria-label='scroll back to top'

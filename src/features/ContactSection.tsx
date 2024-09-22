@@ -7,6 +7,7 @@ import { Motion, Section, SectionHeader } from 'src/components';
 import {
 	DEFAULT_ICON_SIZE,
 	DEFAULT_MOTION_BODY,
+	DEFAULT_MOTION_SCALE,
 	EMAIL_SERVICE_ID,
 	EMAIL_TEMPLATE_ID,
 	EMAIL_USER_ID,
@@ -32,7 +33,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
 		resolver: zodResolver(contactSchema),
 	});
 
-	const formFields = [
+	const FormFields = [
 		{
 			error: !!errors.name,
 			helperText: errors.name?.message,
@@ -104,7 +105,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
 					container
 					spacing={2}
 				>
-					{formFields.map(field => {
+					{FormFields.map(field => {
 						const {
 							error,
 							helperText,
@@ -141,23 +142,28 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
 					})}
 
 					<Grid2 size={12}>
-						<Button
-							color='primary'
-							disabled={loading}
-							size='large'
-							startIcon={
-								loading ? (
-									<CircularProgress
-										color='inherit'
-										size={DEFAULT_ICON_SIZE / 2}
-									/>
-								) : null
-							}
-							type='submit'
-							variant='contained'
+						<Motion
+							style={{ width: 'fit-content' }}
+							whileHover={DEFAULT_MOTION_SCALE}
 						>
-							{loading ? 'Sending...' : 'Send Message'}
-						</Button>
+							<Button
+								color='primary'
+								disabled={loading}
+								size='large'
+								startIcon={
+									loading ? (
+										<CircularProgress
+											color='inherit'
+											size={DEFAULT_ICON_SIZE / 2}
+										/>
+									) : null
+								}
+								type='submit'
+								variant='contained'
+							>
+								{loading ? 'Sending...' : 'Send Message'}
+							</Button>
+						</Motion>
 					</Grid2>
 				</Grid2>
 			</Box>

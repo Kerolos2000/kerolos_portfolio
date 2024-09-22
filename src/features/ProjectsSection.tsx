@@ -15,48 +15,16 @@ import {
 	SectionHeader,
 	TypographyWithBorder,
 } from 'src/components';
+import { Projects } from 'src/config';
 import {
 	DEFAULT_MOTION_BODY,
+	DEFAULT_MOTION_SCALE,
 	DEFAULT_TRANSITION,
 	Routes,
 	Sections,
 } from 'src/constant';
 
-import eCommerce from '../assets/e-commerce.webp';
-import innova from '../assets/innova.webp';
-import noxe from '../assets/noxe.webp';
-import portfolio from '../assets/sara-portfolio.webp';
-
 export interface ProjectsSectionProps {}
-
-interface Project {
-	title: string;
-	image: string;
-	link: string;
-}
-
-const projects: Project[] = [
-	{
-		image: innova,
-		link: 'https://innova.com.eg/',
-		title: 'Innova',
-	},
-	{
-		image: portfolio,
-		link: 'https://sara-portfolio-sigma.vercel.app/',
-		title: 'Sara Portfolio',
-	},
-	{
-		image: noxe,
-		link: 'https://movies-app-react-lime.vercel.app/',
-		title: 'noxe Movie App',
-	},
-	{
-		image: eCommerce,
-		link: 'https://e-commerce-react-pied-ten.vercel.app/',
-		title: 'E-Commerce Store',
-	},
-];
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 	const theme = useTheme();
@@ -71,8 +39,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 			<Grid2
 				container
 				spacing={2}
+				sx={{ justifyContent: 'center' }}
 			>
-				{projects.map(project => {
+				{Projects.map(project => {
 					const { image, link, title } = project;
 
 					return (
@@ -115,7 +84,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 				})}
 			</Grid2>
 			<Box sx={{ display: 'flex', justifyContent: 'center' }}>
-				<Motion whileHover={{ scale: 1.1 }}>
+				<Motion whileHover={DEFAULT_MOTION_SCALE}>
 					<Button
 						onClick={() => navigate(Routes.Projects)}
 						size='large'

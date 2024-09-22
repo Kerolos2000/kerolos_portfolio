@@ -35,6 +35,7 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 			<Grid2
 				container
 				spacing={2}
+				sx={{ justifyContent: 'center' }}
 			>
 				{Object.entries(aboutMeConfig).map(([key, items]) => (
 					<Grid2

@@ -3,19 +3,8 @@ import { alpha, Box, useTheme } from '@mui/material';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Motion, Section, SectionHeader } from 'src/components';
+import { Certificates } from 'src/config';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
-
-import html from '../assets/html-certificate.webp';
-import js from '../assets/js-crtificate.webp';
-import route from '../assets/route.webp';
-import web from '../assets/web-fund.webp';
-
-const certificates = [
-	{ id: '1', image: route },
-	{ id: '2', image: web },
-	{ id: '3', image: js },
-	{ id: '4', image: html },
-];
 
 export interface CertificatesSectionProps {}
 
@@ -23,7 +12,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 	const theme = useTheme();
 	const [selectedId, setSelectedId] = useState<string | null>(null);
 
-	const selectedCertificate = certificates.find(cert => cert.id === selectedId);
+	const selectedCertificate = Certificates.find(cert => cert.id === selectedId);
 
 	return (
 		<Section id={Sections.Certificates}>
@@ -35,8 +24,9 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 				<Masonry
 					columns={{ lg: 4, md: 3, sm: 2, xs: 1 }}
 					spacing={2}
+					sx={{ margin: { xs: '0' } }}
 				>
-					{certificates.map(certificate => {
+					{Certificates.map(certificate => {
 						const { id, image } = certificate;
 						return (
 							<Motion

@@ -1,28 +1,10 @@
 import { Grid2 } from '@mui/material';
 import React from 'react';
 import { Counter, Motion, Section, SectionHeader } from 'src/components';
+import { CountersData } from 'src/config';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
 
 export interface StatsSectionProps {}
-
-const countersData = [
-	{
-		count: 30,
-		title: 'Projects completed',
-	},
-	{
-		count: 3,
-		title: 'Active Projects',
-	},
-	{
-		count: 20,
-		title: 'Happy clients',
-	},
-	{
-		count: 2,
-		title: 'Years of experience',
-	},
-];
 
 export const StatsSection: React.FC<StatsSectionProps> = () => {
 	return (
@@ -35,7 +17,7 @@ export const StatsSection: React.FC<StatsSectionProps> = () => {
 				container
 				spacing={2}
 			>
-				{countersData.map(counter => {
+				{CountersData.map(counter => {
 					const { count, title } = counter;
 					return (
 						<Grid2
