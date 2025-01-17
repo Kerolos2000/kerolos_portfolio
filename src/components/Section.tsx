@@ -8,7 +8,7 @@ export interface SectionProps extends ContainerOwnProps {
 }
 
 export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
-	const { children, id, maxWidth = 'xl', sx, ...rest } = props;
+	const { children, disableGutters, id, maxWidth = 'xl', sx, ...rest } = props;
 
 	const theme = useTheme();
 
@@ -24,8 +24,8 @@ export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
 			{...rest}
 		>
 			<Container
+				disableGutters={disableGutters}
 				maxWidth={maxWidth}
-				{...rest}
 			>
 				<Motion
 					style={{

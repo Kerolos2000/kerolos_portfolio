@@ -107,7 +107,8 @@ export const AppBar: React.FC<AppBarProps> = props => {
 								src={logo}
 								sx={{
 									display: { md: 'flex', xs: 'none' },
-									width: theme.spacing(10),
+									height: 35,
+									width: 100,
 								}}
 							/>
 						</Box>
@@ -134,6 +135,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 								keepMounted
 								onClose={handleCloseNavMenu}
 								open={Boolean(anchorElNav)}
+								role='menu'
 								sx={{
 									display: { md: 'none', xs: 'block' },
 								}}
@@ -168,6 +170,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 
 						{/* Desktop menu */}
 						<Box
+							role='menu'
 							sx={{
 								alignItems: 'center',
 								display: { md: 'flex', xs: 'none' },

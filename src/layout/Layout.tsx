@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = () => {
 					flexDirection: 'column',
 					flexGrow: 1,
 					justifyContent: 'space-between',
-					minHeight: '100vh',
+					minHeight: '100dvh',
 					overflowX: 'hidden',
 					width: '100%',
 				}}

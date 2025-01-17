@@ -10,7 +10,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = () => {
 	const theme = useTheme();
 	return (
 		<Section
-			disableGutters
 			id={Sections.Skills}
 			maxWidth={false}
 		>

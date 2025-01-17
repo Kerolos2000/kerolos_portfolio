@@ -45,7 +45,8 @@ export const Footer: React.FC<FooterProps> = () => {
 								md: 'flex',
 								xs: 'none',
 							},
-							width: theme.spacing(10),
+							height: 35,
+							width: 100,
 						}}
 					/>
 					<Typography variant='body1'>
@@ -109,6 +110,7 @@ export const Footer: React.FC<FooterProps> = () => {
 
 							return (
 								<IconButton
+									aria-label={href}
 									component='a'
 									href={href}
 									key={JSON.stringify(contact)}

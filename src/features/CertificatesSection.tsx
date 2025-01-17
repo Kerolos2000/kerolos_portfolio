@@ -71,7 +71,7 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 									backgroundColor: alpha(theme.palette.common.black, 0.5),
 									display: 'flex',
 									flexDirection: 'column',
-									height: '100vh',
+									height: '100dvh',
 									justifyContent: 'center',
 									left: 0,
 									position: 'fixed',

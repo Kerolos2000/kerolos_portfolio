@@ -21,7 +21,7 @@ export const Loader: React.FC<LoaderProps> = () => {
 	useEffect(() => {
 		body.style.overflow = 'hidden';
 		const animation = animate(count, 100, {
-			duration: 3,
+			duration: 1,
 			onComplete: () => {
 				setIsVisible(false);
 				body.style.overflow = 'auto';
