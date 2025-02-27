@@ -10,6 +10,7 @@ import {
 	useVelocity,
 } from 'framer-motion';
 import React, { PropsWithChildren, useRef } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export interface images {
 	alt: string;
@@ -74,9 +75,8 @@ export const ParallaxScroll: React.FC<
 								return (
 									<Box
 										alt={alt}
-										component='img'
+										component={LazyLoadImage}
 										key={JSON.stringify(image)}
-										loading='lazy'
 										src={src}
 										sx={{
 											aspectRatio: '1/1',

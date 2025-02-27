@@ -11,7 +11,7 @@ export interface HeroSectionProps {}
 export const HeroSection: React.FC<HeroSectionProps> = () => {
 	const theme = useTheme();
 	const { mode } = useChangeMode();
-	const isMd = useMediaQuery(theme.breakpoints.down('md'));
+	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 	const Content = () => {
 		return (
@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			maxWidth={false}
 			sx={{ py: 0, transition: 'unset !important' }}
 		>
-			{isMd ? (
+			{isMobile ? (
 				<Box
 					sx={{
 						backgroundImage: 'url(assets/background.webp)',
@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'saturate(0.8)',
-						height: '100dvh',
+						height: '50dvh',
 						transition: 'unset !important',
 						userSelect: 'none',
 						width: '100%',
@@ -109,7 +109,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'saturate(0.8)',
-						height: '100dvh',
+						height: '70dvh',
 						transition: 'unset !important',
 						userSelect: 'none',
 						width: '100%',

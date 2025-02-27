@@ -1,5 +1,6 @@
 import { Box, Button, useTheme } from '@mui/material';
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
 import { Mode, Routes } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
@@ -23,7 +24,8 @@ export const NotFound: React.FC<NotFoundProps> = () => {
 			}}
 		>
 			<Box
-				component='img'
+				component={LazyLoadImage}
+				effect='blur'
 				src='assets/not-found.svg'
 				sx={{
 					aspectRatio: '1/1',

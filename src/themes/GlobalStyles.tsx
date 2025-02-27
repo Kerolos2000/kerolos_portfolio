@@ -1,5 +1,6 @@
 import { GlobalStyles as MuiGlobalStyles, useTheme } from '@mui/material';
 import React from 'react';
+import { DEFAULT_TRANSITION } from 'src/constant';
 
 export interface GlobalStylesProps {}
 
@@ -24,6 +25,13 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 					'--toastify-text-color-dark': '#121212',
 					'--toastify-text-color-light': '#757575',
 					'--toastify-toast-background': '#f8f8f8',
+				},
+				'.image-wrapper img': {
+					'&:hover': {
+						objectPosition: 'bottom',
+					},
+					objectPosition: 'top',
+					transition: DEFAULT_TRANSITION,
 				},
 				'.lazy-load-image-background.blur': {
 					filter: 'blur(15px)',

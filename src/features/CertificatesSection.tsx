@@ -2,6 +2,7 @@ import { Masonry } from '@mui/lab';
 import { alpha, Box, useTheme } from '@mui/material';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import React, { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Motion, Section, SectionHeader } from 'src/components';
 import { Certificates } from 'src/config';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
@@ -82,7 +83,8 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 							>
 								<Box
 									alt='certificate'
-									component='img'
+									component={LazyLoadImage}
+									effect='blur'
 									src={selectedCertificate.image}
 									style={{
 										aspectRatio: '4/3',

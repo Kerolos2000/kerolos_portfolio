@@ -1,13 +1,6 @@
-import {
-	Box,
-	Button,
-	Card,
-	CardContent,
-	CardMedia,
-	Grid2,
-	useTheme,
-} from '@mui/material';
+import { Box, Button, Card, CardContent, Grid2, useTheme } from '@mui/material';
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link, useNavigate } from 'react-router-dom';
 import {
 	Motion,
@@ -56,24 +49,25 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 									target='_blank'
 									to={link}
 								>
-									<Card
-										sx={{ '&:hover .image': { backgroundPosition: 'bottom' } }}
-									>
+									<Card sx={{ '&:hover .image': { objectPosition: 'bottom' } }}>
 										<CardContent
 											sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
 										>
 											<TypographyWithBorder variant='h5'>
 												{title}
 											</TypographyWithBorder>
-											<CardMedia
+											<Box
 												className='image'
-												image={image}
+												component={LazyLoadImage}
+												effect='blur'
+												src={image}
 												sx={{
-													backgroundPosition: 'top',
-													backgroundSize: 'cover',
 													borderRadius: 0.5,
 													height: theme.spacing(50),
+													objectFit: 'cover',
+													objectPosition: 'top',
 													transition: DEFAULT_TRANSITION,
+													width: '100%',
 												}}
 											/>
 										</CardContent>

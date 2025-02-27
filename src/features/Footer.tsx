@@ -7,6 +7,7 @@ import {
 	Typography,
 	useTheme,
 } from '@mui/material';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { HashLink } from 'react-router-hash-link';
 import { Section } from 'src/components';
 import { Contacts, QuickLinks } from 'src/config';
@@ -35,7 +36,8 @@ export const Footer: React.FC<FooterProps> = () => {
 				>
 					<Box
 						alt='logo'
-						component='img'
+						component={LazyLoadImage}
+						effect='blur'
 						src='assets/logo.webp'
 						sx={{
 							display: {

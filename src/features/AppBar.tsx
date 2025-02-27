@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { pascalCase } from 'change-case';
 import { useEffect, useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { AppBarLinks } from 'src/config';
@@ -102,7 +103,8 @@ export const AppBar: React.FC<AppBarProps> = props => {
 						>
 							<Box
 								alt='logo'
-								component='img'
+								component={LazyLoadImage}
+								effect='blur'
 								src='assets/logo.webp'
 								sx={{
 									display: { md: 'flex', xs: 'none' },
@@ -157,7 +159,8 @@ export const AppBar: React.FC<AppBarProps> = props => {
 							>
 								<Box
 									alt='logo'
-									component='img'
+									component={LazyLoadImage}
+									effect='blur'
 									src='assets/logo.webp'
 									sx={{
 										display: { md: 'none', xs: 'flex' },
