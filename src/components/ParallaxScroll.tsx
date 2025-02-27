@@ -13,8 +13,8 @@ import React, { PropsWithChildren, useRef } from 'react';
 
 export interface images {
 	alt: string;
-	src: string;
 	index: number;
+	src: string;
 }
 
 interface ParallaxScrollProps {

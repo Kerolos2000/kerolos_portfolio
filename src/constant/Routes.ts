@@ -1,16 +1,16 @@
 export enum Sections {
-	Hero = 'Hero',
 	AboutMe = 'AboutMe',
-	Projects = 'Projects',
+	Certificates = 'Certificates',
 	Contact = 'Contact',
 	Counter = 'Counter',
-	Skills = 'Skills',
-	Certificates = 'Certificates',
 	Footer = 'Footer',
+	Hero = 'Hero',
+	Projects = 'Projects',
+	Skills = 'Skills',
 }
 
 export enum Routes {
 	Home = '/',
-	Projects = '/projects',
 	NotFound = '*',
+	Projects = '/projects',
 }

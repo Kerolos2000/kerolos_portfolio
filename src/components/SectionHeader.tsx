@@ -8,8 +8,8 @@ import {
 
 import { Motion } from './Motion';
 export interface SectionHeaderProps {
-	title: string;
 	description?: string;
+	title: string;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = props => {

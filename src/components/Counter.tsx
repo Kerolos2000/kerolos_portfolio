@@ -5,9 +5,9 @@ import { Motion } from './Motion';
 import { HStack, TypographyWithBorder } from './StyledComponents';
 
 export interface CounterProps {
-	title: string;
 	count: number;
 	duration?: number;
+	title: string;
 }
 
 export const Counter: React.FC<CounterProps> = props => {

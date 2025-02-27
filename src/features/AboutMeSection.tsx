@@ -88,10 +88,10 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 };
 
 export interface AboutMeItem {
-	icon?: SvgIconComponent;
-	text?: string;
 	cta?: ReactElement;
+	icon?: SvgIconComponent;
 	onClick?: () => void;
+	text?: string;
 }
 
 export interface AboutMeConfig {

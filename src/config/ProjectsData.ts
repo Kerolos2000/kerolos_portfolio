@@ -4,9 +4,9 @@ import noxe from '../assets/noxe.webp';
 import portfolio from '../assets/sara-portfolio.webp';
 
 interface Project {
-	title: string;
 	image: string;
 	link: string;
+	title: string;
 }
 
 export const Projects: Project[] = [
