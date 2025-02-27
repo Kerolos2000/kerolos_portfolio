@@ -10,9 +10,9 @@ import {
 	useTheme,
 } from '@mui/material';
 import { alpha, styled } from '@mui/system';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { noCase } from 'change-case';
-import { useQuery } from 'react-query';
 import { HStack, Motion, Section, SectionHeader } from 'src/components';
 import { DEFAULT_TRANSITION, Routes } from 'src/constant';
 import { useNotify } from 'src/hooks';
@@ -21,40 +21,33 @@ import stringToColor from 'string-to-color';
 export interface ProjectsProps {}
 
 interface Project {
+	created_at: string;
+	homepage: string | null;
+	html_url: string;
 	id: string;
 	name: string;
-	html_url: string;
-	homepage: string | null;
-	created_at: string;
 	stargazers_count: number;
 }
 
 export const Projects: React.FC<ProjectsProps> = () => {
 	const theme = useTheme();
 	const { notify } = useNotify();
-	const { data, error } = useQuery(
-		['GetListOfProjects'],
-		() =>
+
+	const { data, error } = useQuery({
+		queryFn: () =>
 			axios.get('https://api.github.com/users/Kerolos2000/repos', {
 				params: {
 					direction: 'desc',
 					sort: 'created_at',
 				},
 			}),
-		{
-			keepPreviousData: true,
-			onError: () => {
-				// @ts-ignore
-				notify(error.response.data.message, { type: 'error' });
-			},
-			onSuccess: data => {
-				data.data = data.data.filter(
-					(project: Project) => project.homepage && project.homepage !== null,
-				);
-			},
-			retry: 1,
-		},
-	);
+		queryKey: ['repos'],
+		select: response => response.data.data,
+	});
+
+	if (error) {
+		notify('Something went wrong. Please try again.', { type: 'error' });
+	}
 
 	return (
 		<>
