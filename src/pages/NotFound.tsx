@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Mode, Routes } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 
-import NotFoundIcon from '../assets/not-found.svg';
-
 export interface NotFoundProps {}
 
 export const NotFound: React.FC<NotFoundProps> = () => {
@@ -26,7 +24,7 @@ export const NotFound: React.FC<NotFoundProps> = () => {
 		>
 			<Box
 				component='img'
-				src={NotFoundIcon}
+				src='assets/not-found.svg'
 				sx={{
 					aspectRatio: '1/1',
 					filter: mode === Mode.Dark ? 'saturate(2)' : 'none',

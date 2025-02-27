@@ -1,8 +1,3 @@
-import eCommerce from '../assets/e-commerce.webp';
-import innova from '../assets/innova.webp';
-import noxe from '../assets/noxe.webp';
-import portfolio from '../assets/sara-portfolio.webp';
-
 interface Project {
 	image: string;
 	link: string;
@@ -11,23 +6,23 @@ interface Project {
 
 export const Projects: Project[] = [
 	{
-		image: innova,
+		image: 'assets/runnet.webp',
+		link: 'https://www.runnet.io/',
+		title: 'runnet',
+	},
+	{
+		image: 'assets/innova.webp',
 		link: 'https://innova.com.eg/',
 		title: 'Innova',
 	},
 	{
-		image: portfolio,
-		link: 'https://sara-portfolio-sigma.vercel.app/',
-		title: 'Sara Portfolio',
+		image: 'assets/growth-level-academy.webp',
+		link: 'https://growth-level-academy.vercel.app/',
+		title: 'Growth Level Academy',
 	},
 	{
-		image: noxe,
-		link: 'https://movies-app-react-lime.vercel.app/',
-		title: 'noxe Movie App',
-	},
-	{
-		image: eCommerce,
+		image: 'assets/e-commerce.webp',
 		link: 'https://e-commerce-react-pied-ten.vercel.app/',
-		title: 'E-Commerce Store',
+		title: 'Fresh Cart E-Commerce',
 	},
 ];

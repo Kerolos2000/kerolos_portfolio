@@ -13,8 +13,6 @@ import { Contacts, QuickLinks } from 'src/config';
 import { Mode, Sections } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 
-import logo from '../assets/logo.webp';
-
 export interface FooterProps {}
 
 export const Footer: React.FC<FooterProps> = () => {
@@ -38,7 +36,7 @@ export const Footer: React.FC<FooterProps> = () => {
 					<Box
 						alt='logo'
 						component='img'
-						src={logo}
+						src='assets/logo.webp'
 						sx={{
 							display: {
 								filter: Mode.Light === mode ? 'invert(1)' : 'none',

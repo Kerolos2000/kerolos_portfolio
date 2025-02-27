@@ -6,8 +6,6 @@ import { Section } from 'src/components';
 import { Mode, Sections } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
 
-import background from '../assets/background.webp';
-
 export interface HeroSectionProps {}
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
@@ -89,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			{isMd ? (
 				<Box
 					sx={{
-						backgroundImage: `url(${background})`,
+						backgroundImage: 'url(assets/background.webp)',
 						backgroundPosition: 'center',
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
@@ -104,7 +102,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 				</Box>
 			) : (
 				<WaterWave
-					imageUrl={background}
+					imageUrl='assets/background.webp'
 					resolution={500}
 					style={{
 						backgroundPosition: 'center',

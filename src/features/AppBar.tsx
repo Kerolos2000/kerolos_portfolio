@@ -21,7 +21,6 @@ import { HashLink } from 'react-router-hash-link';
 import { AppBarLinks } from 'src/config';
 import { DEFAULT_TRANSITION, Routes, Sections } from 'src/constant';
 
-import logo from '../assets/logo.webp';
 import { ToggleButton } from '../components';
 
 export interface AppBarProps {}
@@ -104,7 +103,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 							<Box
 								alt='logo'
 								component='img'
-								src={logo}
+								src='assets/logo.webp'
 								sx={{
 									display: { md: 'flex', xs: 'none' },
 									height: 35,
@@ -159,7 +158,7 @@ export const AppBar: React.FC<AppBarProps> = props => {
 								<Box
 									alt='logo'
 									component='img'
-									src={logo}
+									src='assets/logo.webp'
 									sx={{
 										display: { md: 'none', xs: 'flex' },
 										width: theme.spacing(10),

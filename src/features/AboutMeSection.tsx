@@ -1,6 +1,7 @@
 import { SvgIconComponent } from '@mui/icons-material';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalanceTwoTone';
 import ApartmentIcon from '@mui/icons-material/ApartmentTwoTone';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import FmdGoodIcon from '@mui/icons-material/FmdGoodTwoTone';
 import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebookTwoTone';
 import TodayIcon from '@mui/icons-material/TodayTwoTone';
@@ -17,8 +18,6 @@ import {
 	TypographyWithBorder,
 } from 'src/components';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
-
-import cv from '../assets/Kerolos-Magdy-Resume.pdf';
 
 export interface AboutMeSectionProps {}
 
@@ -65,7 +64,9 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 										const { cta, icon: Icon, text } = item;
 										return (
 											<HStack key={JSON.stringify(item)}>
-												{Icon ? <Icon /> : null}
+												{Icon ? (
+													<Icon sx={{ color: 'text.secondary' }} />
+												) : null}
 												{text ? (
 													<Typography variant='body1'>{text}</Typography>
 												) : null}
@@ -127,10 +128,11 @@ const aboutMeConfig: AboutMeConfig = {
 			cta: (
 				<Button
 					download
-					href={cv}
-					variant='outlined'
+					href='assets/Kerolos-Magdy-Resume.pdf'
+					startIcon={<FileDownloadOutlinedIcon />}
+					variant='contained'
 				>
-					Download CV
+					Hire Me
 				</Button>
 			),
 		},
