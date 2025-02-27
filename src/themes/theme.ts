@@ -3,74 +3,74 @@ import { ThemeOptions } from '@mui/material';
 export const darkTheme: ThemeOptions = {
 	palette: {
 		background: {
-			default: '#040705',
-			paper: '#080e0a',
+			default: '#0D1117',
+			paper: '#161B22',
 		},
 		common: {
 			black: '#000000',
-			white: '#e0e0e0',
+			white: '#E3E8EE',
 		},
 		info: {
-			dark: '#002e47',
-			main: '#005989',
+			dark: '#0A192F',
+			main: '#1B4F72',
 		},
 		mode: 'dark',
 		primary: {
-			contrastText: '#e0e0e0',
-			dark: '#1B2B23',
-			light: '#4A5B51',
-			main: '#60806d',
+			contrastText: '#E3E8EE',
+			dark: '#1E2D3D',
+			light: '#3A506B',
+			main: '#486581',
 		},
 		secondary: {
-			contrastText: '#ffffff',
-			dark: '#3A4D41',
-			light: '#a3b5a8',
-			main: '#538768',
+			contrastText: '#FFFFFF',
+			dark: '#273A47',
+			light: '#AAB7C4',
+			main: '#5E7385',
 		},
 		text: {
-			primary: '#e0e0e0',
-			secondary: '#cfd8dc',
+			primary: '#E3E8EE',
+			secondary: '#AAB7C4',
 		},
 	},
 	shape: {
-		borderRadius: 8,
+		borderRadius: 12,
 	},
 };
 
 export const lightTheme: ThemeOptions = {
 	palette: {
 		background: {
-			default: '#EDF5E1',
-			paper: '#f5ffed',
+			default: '#F8F9FA',
+			paper: '#FFFFFF',
 		},
 		common: {
-			black: '#2C3E50',
-			white: '#ffffff',
+			black: '#1C1C1E',
+			white: '#FFFFFF',
 		},
 		mode: 'light',
 		primary: {
-			contrastText: '#ffffff',
-			dark: '#388E3C',
-			light: '#88B04B',
-			main: '#4CAF50',
+			contrastText: '#FFFFFF',
+			dark: '#37474F',
+			light: '#90A4AE',
+			main: '#546E7A',
 		},
 		secondary: {
-			contrastText: '#ffffff',
-			dark: '#6E7F5E',
-			light: '#C2D1B5',
-			main: '#88B04B',
+			contrastText: '#FFFFFF',
+			dark: '#5D4037',
+			light: '#D7CCC8',
+			main: '#8D6E63',
 		},
 		text: {
-			primary: '#2C3E50',
-			secondary: '#6f797b',
+			primary: '#2D2D2D',
+			secondary: '#757575',
 		},
 		warning: {
-			dark: '#FFB300',
-			light: '#ffe2b7',
-			main: '#ffb13c',
+			dark: '#D84315',
+			light: '#FFCCBC',
+			main: '#FF7043',
 		},
 	},
 	shape: {
-		borderRadius: 8,
+		borderRadius: 12,
 	},
 };
