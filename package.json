@@ -35,9 +35,9 @@
     "react-router-dom": "^7.1.2",
     "react-router-hash-link": "^2.4.3",
     "react-toastify": "^11.0.3",
+    "react-typed": "^2.0.12",
     "react-water-wave": "^2.0.1",
     "string-to-color": "^2.2.2",
-    "typed.js": "^2.1.0",
     "zod": "^3.24.1",
     "zustand": "^5.0.3"
   },

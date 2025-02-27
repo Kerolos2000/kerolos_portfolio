@@ -40,37 +40,37 @@ export const darkTheme: ThemeOptions = {
 export const lightTheme: ThemeOptions = {
 	palette: {
 		background: {
-			default: '#F8F9FA',
+			default: '#F7F8FA',
 			paper: '#FFFFFF',
 		},
 		common: {
-			black: '#1C1C1E',
+			black: '#1B1F23',
 			white: '#FFFFFF',
 		},
 		mode: 'light',
 		primary: {
 			contrastText: '#FFFFFF',
-			dark: '#37474F',
-			light: '#90A4AE',
-			main: '#546E7A',
+			dark: '#1E4D63',
+			light: '#A6C8DD',
+			main: '#3D7EA6',
 		},
 		secondary: {
 			contrastText: '#FFFFFF',
-			dark: '#5D4037',
-			light: '#D7CCC8',
-			main: '#8D6E63',
+			dark: '#4A3D34',
+			light: '#D4BEB3',
+			main: '#A98272',
 		},
 		text: {
-			primary: '#2D2D2D',
-			secondary: '#757575',
+			primary: '#2A2A2E',
+			secondary: '#72757E',
 		},
 		warning: {
-			dark: '#D84315',
-			light: '#FFCCBC',
-			main: '#FF7043',
+			dark: '#9A3324',
+			light: '#FFD5C2',
+			main: '#E67E5A',
 		},
 	},
 	shape: {
-		borderRadius: 12,
+		borderRadius: 18,
 	},
 };

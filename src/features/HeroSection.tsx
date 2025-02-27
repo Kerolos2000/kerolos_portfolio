@@ -1,10 +1,10 @@
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { ReactTyped } from 'react-typed';
 import WaterWave from 'react-water-wave';
 import { Section } from 'src/components';
 import { Mode, Sections } from 'src/constant';
 import { useChangeMode } from 'src/hooks';
-import Typed from 'typed.js';
 
 import background from '../assets/background.webp';
 
@@ -12,22 +12,8 @@ export interface HeroSectionProps {}
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
 	const theme = useTheme();
-	const typedRef = useRef(null);
 	const { mode } = useChangeMode();
 	const isMd = useMediaQuery(theme.breakpoints.down('md'));
-
-	useEffect(() => {
-		const typed = new Typed(typedRef.current, {
-			backSpeed: 25,
-			loop: true,
-			strings: ['Frontend Developer', 'React Native Developer'],
-			typeSpeed: 25,
-		});
-
-		return () => {
-			typed.destroy();
-		};
-	}, [mode]);
 
 	const Content = () => {
 		return (
@@ -59,8 +45,9 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						Hello I'm
 					</Typography>
 					<Typography
+						component='h1'
 						sx={{
-							color: theme.palette.secondary.light,
+							color: theme.palette.primary.contrastText,
 							fontSize: 'calc(2rem + 2vw)',
 							fontWeight: 'bold',
 							textAlign: 'center',
@@ -79,10 +66,12 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						}}
 					>
 						<Typography
-							component='span'
-							id='typed'
-							ref={typedRef}
+							backSpeed={50}
+							component={ReactTyped}
+							loop
+							strings={['Frontend Developer', 'React Native Developer']}
 							sx={{ fontSize: theme.spacing(3), textAlign: 'center' }}
+							typeSpeed={50}
 						/>
 					</Box>
 				</Box>
@@ -104,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						backgroundPosition: 'center',
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
-						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'none',
+						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'saturate(0.8)',
 						height: '100dvh',
 						transition: 'unset !important',
 						userSelect: 'none',
@@ -121,7 +110,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 						backgroundPosition: 'center',
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
-						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'none',
+						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'saturate(0.8)',
 						height: '100dvh',
 						transition: 'unset !important',
 						userSelect: 'none',
