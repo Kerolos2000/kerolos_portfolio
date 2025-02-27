@@ -42,7 +42,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
 				},
 			}),
 		queryKey: ['repos'],
-		select: response => response.data.data,
+		select: response => response.data,
 	});
 
 	if (error) {
@@ -59,7 +59,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
 					description='Here are some of the projects I have worked on'
 					title='Projects'
 				/>
-				{!data?.data || data?.data.length === 0 ? (
+				{!data || data.length === 0 ? (
 					<Typography
 						fontWeight='bold'
 						textAlign='center'
@@ -73,7 +73,7 @@ export const Projects: React.FC<ProjectsProps> = () => {
 						spacing={2}
 						sx={{ margin: { xs: '0' } }}
 					>
-						{data?.data.map((element: Project) => {
+						{data.map((element: Project) => {
 							const { homepage, id, name, stargazers_count } = element;
 							return (
 								<MasonryItem
