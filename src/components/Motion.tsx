@@ -7,8 +7,8 @@ export const Motion: React.FC<PropsWithChildren<MotionProps>> = props => {
 	const {
 		children,
 		transition = {
-			mass: 1.5,
-			stiffness: 150,
+			mass: 1,
+			stiffness: 50,
 			type: 'spring',
 		},
 		whileInView,

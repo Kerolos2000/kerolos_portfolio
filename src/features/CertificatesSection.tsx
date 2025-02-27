@@ -1,8 +1,7 @@
 import { Masonry } from '@mui/lab';
-import { alpha, Box, useTheme } from '@mui/material';
+import { alpha, useTheme } from '@mui/material';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Motion, Section, SectionHeader } from 'src/components';
 import { Certificates } from 'src/config';
 import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
@@ -32,16 +31,10 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 						return (
 							<Motion
 								key={id}
-								layoutId={id}
 								onClick={() => setSelectedId(id)}
 								style={{
 									borderRadius: theme.shape.borderRadius,
 									cursor: 'pointer',
-								}}
-								transition={{
-									mass: 1.5,
-									stiffness: 150,
-									type: selectedId ? 'tween' : 'spring',
 								}}
 								whileInView={DEFAULT_MOTION_BODY}
 							>
@@ -63,39 +56,37 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 
 				<AnimatePresence>
 					{selectedId && selectedCertificate && (
-						<>
-							<Motion
-								layoutId={selectedId}
-								onClick={() => setSelectedId(null)}
+						<Motion
+							onClick={() => setSelectedId(null)}
+							style={{
+								alignItems: 'center',
+								backgroundColor: alpha(theme.palette.common.black, 0.5),
+								display: 'flex',
+								flexDirection: 'column',
+								height: '100dvh',
+								justifyContent: 'center',
+								left: 0,
+								position: 'fixed',
+								top: 0,
+								width: '100vw',
+								zIndex: theme.zIndex.drawer + 1,
+							}}
+						>
+							<motion.img
+								alt='certificate'
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 0.8 }}
+								initial={{ opacity: 0, scale: 0.8 }}
+								src={selectedCertificate.image}
 								style={{
-									alignItems: 'center',
-									backgroundColor: alpha(theme.palette.common.black, 0.5),
-									display: 'flex',
-									flexDirection: 'column',
-									height: '100dvh',
-									justifyContent: 'center',
-									left: 0,
-									position: 'fixed',
-									top: 0,
-									width: '100vw',
+									aspectRatio: '4/3',
+									borderRadius: theme.shape.borderRadius,
+									height: theme.spacing(50),
+									objectFit: 'cover',
 									zIndex: theme.zIndex.drawer + 1,
 								}}
-							>
-								<Box
-									alt='certificate'
-									component={LazyLoadImage}
-									effect='blur'
-									src={selectedCertificate.image}
-									style={{
-										aspectRatio: '4/3',
-										borderRadius: theme.shape.borderRadius,
-										height: theme.spacing(50),
-										objectFit: 'cover',
-										zIndex: theme.zIndex.drawer + 1,
-									}}
-								/>
-							</Motion>
-						</>
+							/>
+						</Motion>
 					)}
 				</AnimatePresence>
 			</LayoutGroup>
