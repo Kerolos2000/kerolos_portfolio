@@ -47,11 +47,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = () => {
 				}}
 			>
 				<ParallaxScroll
-					baseVelocity={-2}
+					baseVelocity={-0.5}
 					images={ImagesLeft}
 				/>
 				<ParallaxScroll
-					baseVelocity={2}
+					baseVelocity={0.5}
 					images={ImagesRight}
 				/>
 			</Box>

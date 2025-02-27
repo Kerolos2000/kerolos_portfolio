@@ -13,6 +13,32 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 					background: theme.palette.secondary.light,
 					color: theme.palette.primary.main,
 				},
+				':root': {
+					'--toastify-color-dark': '#121212',
+					'--toastify-color-error': '#e74d3c',
+					'--toastify-color-info': '#3498db',
+					'--toastify-color-light': '#f8f8f8',
+					'--toastify-color-success': '#07bc0c',
+					'--toastify-color-warning': '#FFA726',
+					'--toastify-font-family': '"Inter Variable", sans-serif',
+					'--toastify-text-color-dark': '#121212',
+					'--toastify-text-color-light': '#757575',
+					'--toastify-toast-background': '#f8f8f8',
+				},
+				'.lazy-load-image-background.blur': {
+					filter: 'blur(15px)',
+				},
+				'.lazy-load-image-background.blur.lazy-load-image-loaded': {
+					filter: 'blur(0)',
+					transition: 'filter .3s',
+				},
+				'.lazy-load-image-background.blur.lazy-load-image-loaded > img': {
+					opacity: 1,
+					transition: 'opacity .3s',
+				},
+				'.lazy-load-image-background.blur > img': {
+					opacity: 0,
+				},
 				'.parallax': {
 					display: 'flex',
 					flexWrap: 'nowrap',
@@ -42,7 +68,7 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 					width: '100%',
 				},
 				'*::-webkit-scrollbar': {
-					width: theme.spacing(1.5),
+					width: theme.spacing(0.75),
 				},
 				'*::-webkit-scrollbar-thumb': {
 					'&:hover': {

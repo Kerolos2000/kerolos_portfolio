@@ -1,4 +1,4 @@
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import { Fab, useTheme } from '@mui/material';
 import { useScroll } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
@@ -47,7 +47,7 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 				onClick={scrollToTop}
 				size='medium'
 			>
-				<ArrowUpwardIcon />
+				<KeyboardArrowUpOutlinedIcon sx={{ fontSize: 30 }} />
 			</Fab>
 		</Motion>
 	);

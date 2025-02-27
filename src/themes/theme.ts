@@ -71,6 +71,6 @@ export const lightTheme: ThemeOptions = {
 		},
 	},
 	shape: {
-		borderRadius: 18,
+		borderRadius: 12,
 	},
 };

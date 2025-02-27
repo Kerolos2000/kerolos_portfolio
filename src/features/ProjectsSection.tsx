@@ -71,6 +71,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 												sx={{
 													backgroundPosition: 'top',
 													backgroundSize: 'cover',
+													borderRadius: 0.5,
 													height: theme.spacing(50),
 													transition: DEFAULT_TRANSITION,
 												}}

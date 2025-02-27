@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
 import compression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
+import removeConsole from 'vite-plugin-remove-console';
 import sitemap from 'vite-plugin-sitemap';
 
 const routes = [
@@ -67,6 +68,7 @@ export default defineConfig({
 			readable: true,
 			robots: [{ allow: '/', userAgent: '*' }],
 		}),
+		removeConsole(),
 	],
 	resolve: {
 		alias: {

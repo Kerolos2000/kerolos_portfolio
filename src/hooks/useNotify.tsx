@@ -1,6 +1,5 @@
 import { useTheme } from '@mui/material';
 import { ToastContainer, ToastOptions, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { useChangeMode } from './useChangeMode';
 
