@@ -15,4 +15,4 @@ export const DEFAULT_TRANSITION = 'all 0.5s ease !important';
 export const DEFAULT_MOTION_SCALE = { scale: 1.1 };
 export const DEFAULT_MOTION_LEFT = { x: [-100, 0] };
 export const DEFAULT_MOTION_RIGHT = { x: [100, 0] };
-export const DEFAULT_MOTION_BODY = { opacity: [0.8, 1], scale: [0.8, 1] };
+export const DEFAULT_MOTION_BODY = { scale: [0.9, 1] };

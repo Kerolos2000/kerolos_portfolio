@@ -1,5 +1,4 @@
 export * from './Counter';
-export * from './Loader';
 export * from './Motion';
 export * from './ParallaxScroll';
 export * from './ScrollToTopButton';

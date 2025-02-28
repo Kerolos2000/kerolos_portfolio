@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Loader, ScrollToTopButton } from 'src/components';
+import { ScrollToTopButton } from 'src/components';
 import { AppBar, Footer } from 'src/features';
 import { useChangeMode, useNotify } from 'src/hooks';
 
@@ -13,7 +13,6 @@ export const Layout: React.FC<LayoutProps> = () => {
 
 	return (
 		<>
-			<Loader />
 			<ScrollToTopButton />
 			<ToastContainer
 				position='bottom-left'
