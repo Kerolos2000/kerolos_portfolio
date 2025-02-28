@@ -13,26 +13,18 @@ const routes = [
 
 export default defineConfig({
 	build: {
-		assetsInlineLimit: 4096,
-		chunkSizeWarningLimit: 1000,
 		cssMinify: true,
 		minify: 'esbuild',
 		rollupOptions: {
 			output: {
-				manualChunks: {
-					vendor: [
-						'react',
-						'react-dom',
-						'@mui/material',
-						'react-router-dom',
-						'react-dom-client',
-						'date-fns',
-						'@tanstack/react-query',
-					],
+				manualChunks(id) {
+					if (id.includes('node_modules')) {
+						return 'vendor';
+					}
 				},
 			},
 		},
-		sourcemap: true,
+		sourcemap: false,
 		target: 'esnext',
 	},
 	plugins: [
@@ -45,9 +37,13 @@ export default defineConfig({
 			algorithm: 'brotliCompress',
 			threshold: 512,
 		}),
+		compression({
+			algorithm: 'gzip',
+			threshold: 1024,
+		}),
 		viteImagemin({
 			gifsicle: { optimizationLevel: 7 },
-			mozjpeg: { quality: 65 },
+			mozjpeg: { quality: 50 },
 			optipng: { optimizationLevel: 7 },
 			svgo: {
 				plugins: [
@@ -57,7 +53,7 @@ export default defineConfig({
 					{ active: true, name: 'removeUselessStrokeAndFill' },
 				],
 			},
-			webp: { quality: 65 },
+			webp: { quality: 50 },
 		}),
 		sitemap({
 			dynamicRoutes: routes.map(route => route.url),
