@@ -1,5 +1,5 @@
 import { Masonry } from '@mui/lab';
-import { alpha, useTheme } from '@mui/material';
+import { alpha, Box, useTheme } from '@mui/material';
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Motion, Section, SectionHeader } from 'src/components';
@@ -29,36 +29,44 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 					{Certificates.map(certificate => {
 						const { id, image } = certificate;
 						return (
-							<Motion
+							<Box
+								component={Motion}
 								key={id}
 								onClick={() => setSelectedId(id)}
-								style={{
-									borderRadius: theme.shape.borderRadius,
+								sx={{
+									borderRadius: 1,
+									boxShadow: theme.shadows[3],
 									cursor: 'pointer',
+								}}
+								whileHover={{
+									boxShadow: theme.shadows[10],
 								}}
 								whileInView={DEFAULT_MOTION_BODY}
 							>
-								<motion.img
+								<Box
 									alt='certificate'
+									component={motion.img}
 									loading='lazy'
 									src={image}
-									style={{
-										borderRadius: theme.shape.borderRadius,
+									sx={{
+										borderRadius: 1,
 										height: '100%',
 										objectFit: 'cover',
 										width: '100%',
 									}}
+									viewport={{ once: true }}
 								/>
-							</Motion>
+							</Box>
 						);
 					})}
 				</Masonry>
 
 				<AnimatePresence>
 					{selectedId && selectedCertificate && (
-						<Motion
+						<Box
+							component={Motion}
 							onClick={() => setSelectedId(null)}
-							style={{
+							sx={{
 								alignItems: 'center',
 								backgroundColor: alpha(theme.palette.common.black, 0.5),
 								display: 'flex',
@@ -66,27 +74,29 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 								height: '100dvh',
 								justifyContent: 'center',
 								left: 0,
+								padding: 2,
 								position: 'fixed',
 								top: 0,
 								width: '100vw',
 								zIndex: theme.zIndex.drawer + 1,
 							}}
 						>
-							<motion.img
+							<Box
 								alt='certificate'
 								animate={{ opacity: 1, scale: 1 }}
+								component={motion.img}
 								exit={{ opacity: 0, scale: 0.8 }}
 								initial={{ opacity: 0, scale: 0.8 }}
 								src={selectedCertificate.image}
-								style={{
+								sx={{
 									aspectRatio: '4/3',
-									borderRadius: theme.shape.borderRadius,
-									height: theme.spacing(50),
+									borderRadius: 1,
 									objectFit: 'cover',
+									width: { md: '50%', xs: '100%' },
 									zIndex: theme.zIndex.drawer + 1,
 								}}
 							/>
-						</Motion>
+						</Box>
 					)}
 				</AnimatePresence>
 			</LayoutGroup>

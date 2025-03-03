@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			disableGutters
 			id={Sections.Hero}
 			maxWidth={false}
-			sx={{ py: 0, transition: 'unset !important' }}
+			sx={{ overflow: 'hidden', py: 0, transition: 'unset !important' }}
 		>
 			{isMobile ? (
 				<Box
