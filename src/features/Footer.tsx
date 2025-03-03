@@ -5,7 +5,6 @@ import {
 	List,
 	ListItem,
 	Typography,
-	useTheme,
 } from '@mui/material';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { HashLink } from 'react-router-hash-link';
@@ -17,7 +16,6 @@ import { useChangeMode } from 'src/hooks';
 export interface FooterProps {}
 
 export const Footer: React.FC<FooterProps> = () => {
-	const theme = useTheme();
 	const { mode } = useChangeMode();
 
 	return (
@@ -31,7 +29,7 @@ export const Footer: React.FC<FooterProps> = () => {
 			>
 				<Grid2
 					gap={2}
-					size={{ md: 4, xs: 12 }}
+					size={{ md: 6, xs: 12 }}
 					sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
 				>
 					<Box
@@ -49,15 +47,19 @@ export const Footer: React.FC<FooterProps> = () => {
 							width: 100,
 						}}
 					/>
-					<Typography variant='body1'>
+					<Typography>
 						I work hard to complete projects with the highest quality and as
-						quickly as possible.
+						quickly as possible. With a strong focus on clean code, performance,
+						and user experience, I always strive to deliver efficient and
+						scalable solutions.
 					</Typography>
-					<Typography variant='body2'>created in 2024.</Typography>
+					<Typography color='text.secondary'>
+						Created in 2025. Always improving and evolving.
+					</Typography>
 				</Grid2>
 
 				<Grid2
-					size={{ md: 4, xs: 12 }}
+					size={{ md: 2, xs: 12 }}
 					sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
 				>
 					<Typography variant='h6'>Quick Links</Typography>
@@ -70,9 +72,14 @@ export const Footer: React.FC<FooterProps> = () => {
 									sx={{ p: 0 }}
 								>
 									<Box
-										color='primary.main'
+										color='inherit'
 										component={HashLink}
-										sx={{ textDecoration: 'none' }}
+										sx={{
+											':hover': {
+												textDecoration: 'underline',
+											},
+											textDecoration: 'none',
+										}}
 										to={link}
 									>
 										<Typography variant='body1'>{title}</Typography>
@@ -91,15 +98,6 @@ export const Footer: React.FC<FooterProps> = () => {
 					<Typography variant='body1'>
 						Contact me via phone or e-mail, waiting for your call or message
 					</Typography>
-					<Typography
-						sx={{
-							border: `${theme.spacing(0.25)} solid ${theme.palette.primary.main}`,
-							padding: theme.spacing(2),
-						}}
-						variant='body1'
-					>
-						kerolos1410@gmail.com
-					</Typography>
 
 					<Box
 						display='flex'
@@ -115,6 +113,11 @@ export const Footer: React.FC<FooterProps> = () => {
 									href={href}
 									key={JSON.stringify(contact)}
 									rel='noreferrer'
+									sx={{
+										border: theme =>
+											`1px solid ${theme.palette.secondary.light}`,
+										color: 'secondary.main',
+									}}
 									target='_blank'
 								>
 									<Icon />
