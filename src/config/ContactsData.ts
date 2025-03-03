@@ -6,20 +6,20 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export const Contacts = [
 	{
-		href: 'https://www.linkedin.com/in/kerolos-magdy-314644212/',
-		icon: LinkedInIcon,
-	},
-	{
-		href: 'https://github.com/Kerolos2000',
-		icon: GitHubIcon,
+		href: 'https://wa.me/+201205224238',
+		icon: WhatsAppIcon,
 	},
 	{
 		href: 'mailto:kerolos1410@gmail.com',
 		icon: EmailIcon,
 	},
 	{
-		href: 'https://wa.me/+201205224238',
-		icon: WhatsAppIcon,
+		href: 'https://www.linkedin.com/in/kerolos-magdy-314644212/',
+		icon: LinkedInIcon,
+	},
+	{
+		href: 'https://github.com/Kerolos2000',
+		icon: GitHubIcon,
 	},
 	{
 		href: 'https://www.facebook.com/profile.php?id=100085254521149',
