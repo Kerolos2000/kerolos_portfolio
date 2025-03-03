@@ -1,7 +1,6 @@
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import { Fab, useTheme } from '@mui/material';
-import { useScroll } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import { Fab, useScrollTrigger, useTheme } from '@mui/material';
+import React from 'react';
 import { DEFAULT_MOTION_SCALE } from 'src/constant';
 
 import { Motion } from './Motion';
@@ -10,18 +9,11 @@ export interface ScrollToTopButtonProps {}
 
 export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 	const theme = useTheme();
-	const { scrollY } = useScroll();
-	const [visible, setVisible] = useState(false);
 
-	useEffect(() => {
-		return scrollY.on('change', y => {
-			if (y > 300) {
-				setVisible(true);
-			} else {
-				setVisible(false);
-			}
-		});
-	}, [scrollY]);
+	const trigger = useScrollTrigger({
+		disableHysteresis: true,
+		threshold: 300,
+	});
 
 	const scrollToTop = () => {
 		window.scrollTo({ behavior: 'smooth', top: 0 });
@@ -30,8 +22,7 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 	return (
 		<Motion
 			animate={{
-				opacity: visible ? 1 : 0,
-				y: visible ? 0 : 50,
+				y: trigger ? 0 : 100,
 			}}
 			style={{
 				bottom: theme.spacing(3),
