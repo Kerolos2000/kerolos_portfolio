@@ -45,6 +45,7 @@ export const Counter: React.FC<CounterProps> = props => {
 						fontSize: theme.typography.h3.fontSize,
 						margin: 0,
 					}}
+					viewport={{ once: true }}
 				>
 					{rounded}
 				</motion.h3>

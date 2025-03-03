@@ -62,6 +62,7 @@ export const ParallaxScroll: React.FC<
 			<motion.div
 				className='scroller'
 				style={{ x }}
+				viewport={{ once: true }}
 			>
 				{Array.from({ length: 4 }, (_, index) => (
 					<Box
