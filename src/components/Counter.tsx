@@ -34,14 +34,13 @@ export const Counter: React.FC<CounterProps> = props => {
 			</TypographyWithBorder>
 			<HStack sx={{ alignItems: 'center' }}>
 				<Typography
-					color='secondary'
+					color='primary'
 					variant='h3'
 				>
 					+
 				</Typography>
 				<motion.h3
 					style={{
-						color: theme.palette.secondary.main,
 						fontSize: theme.typography.h3.fontSize,
 						margin: 0,
 					}}

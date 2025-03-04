@@ -21,12 +21,6 @@ export const darkTheme: ThemeOptions = {
 			light: '#3A506B',
 			main: '#486581',
 		},
-		secondary: {
-			contrastText: '#FFFFFF',
-			dark: '#273A47',
-			light: '#AAB7C4',
-			main: '#5E7385',
-		},
 		text: {
 			primary: '#E3E8EE',
 			secondary: '#AAB7C4',
@@ -53,12 +47,6 @@ export const lightTheme: ThemeOptions = {
 			dark: '#1E4D63',
 			light: '#A6C8DD',
 			main: '#3D7EA6',
-		},
-		secondary: {
-			contrastText: '#FFFFFF',
-			dark: '#3E5155',
-			light: '#C2D6D9',
-			main: '#7297A0',
 		},
 		text: {
 			primary: '#2A2A2E',

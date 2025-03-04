@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = () => {
 							width: 100,
 						}}
 					/>
-					<Typography>
+					<Typography color='text.secondary'>
 						I work hard to complete projects with the highest quality and as
 						quickly as possible. With a strong focus on clean code, performance,
 						and user experience, I always strive to deliver efficient and
@@ -69,7 +69,7 @@ export const Footer: React.FC<FooterProps> = () => {
 									sx={{ p: 0 }}
 								>
 									<Box
-										color='inherit'
+										color='text.secondary'
 										component={HashLink}
 										sx={{
 											':hover': {
@@ -92,7 +92,10 @@ export const Footer: React.FC<FooterProps> = () => {
 					sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
 				>
 					<Typography variant='h6'>Contact Us</Typography>
-					<Typography variant='body1'>
+					<Typography
+						color='text.secondary'
+						variant='body1'
+					>
 						Contact me via phone or e-mail, waiting for your call or message
 					</Typography>
 
@@ -106,15 +109,14 @@ export const Footer: React.FC<FooterProps> = () => {
 							return (
 								<IconButton
 									aria-label={href}
+									color='primary'
 									component='a'
 									href={href}
 									key={JSON.stringify(contact)}
 									rel='noreferrer'
 									sx={{
-										border: theme =>
-											`1px solid ${theme.palette.secondary.light}`,
+										border: theme => `1px solid ${theme.palette.primary.light}`,
 										borderRadius: 1,
-										color: 'secondary.main',
 									}}
 									target='_blank'
 								>

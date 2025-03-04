@@ -34,7 +34,7 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 		>
 			<Fab
 				aria-label='scroll back to top'
-				color='secondary'
+				color='primary'
 				onClick={scrollToTop}
 				size='small'
 				sx={{ borderRadius: 1 }}

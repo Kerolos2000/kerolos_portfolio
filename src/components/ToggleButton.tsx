@@ -23,7 +23,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 			sx={{
 				alignItems: 'center',
 				backgroundColor: isDark
-					? theme.palette.info.dark
+					? theme.palette.info.main
 					: theme.palette.warning.light,
 				borderRadius: theme.shape.borderRadius * 5,
 				boxShadow: theme.shadows[5],
@@ -42,7 +42,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = () => {
 				style={{
 					alignItems: 'center',
 					backgroundColor: isDark
-						? theme.palette.info.main
+						? theme.palette.info.dark
 						: theme.palette.warning.main,
 					borderRadius: '50%',
 					cursor: 'pointer',

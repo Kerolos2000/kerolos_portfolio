@@ -11,8 +11,8 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 		<MuiGlobalStyles
 			styles={{
 				'::selection': {
-					background: theme.palette.secondary.light,
-					color: theme.palette.primary.main,
+					background: theme.palette.primary.main,
+					color: theme.palette.primary.contrastText,
 				},
 				':root': {
 					'--toastify-color-dark': '#121212',

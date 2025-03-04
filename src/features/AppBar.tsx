@@ -128,7 +128,7 @@ export const AppBar: React.FC<AppBarProps> = () => {
 									{renderMenuItems()}
 									<Box
 										sx={{
-											background: `linear-gradient(360deg,${theme.palette.secondary.light} 0%,${alpha(theme.palette.primary.light, 0.1)} 100%)`,
+											background: `linear-gradient(360deg,${theme.palette.primary.contrastText} 0%,${alpha(theme.palette.primary.light, 0.1)} 100%)`,
 											borderRadius: 3,
 											height: 6,
 											mt: 3,
