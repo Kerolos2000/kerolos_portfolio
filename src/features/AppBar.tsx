@@ -4,10 +4,10 @@ import {
 	Box,
 	Container,
 	IconButton,
-	Menu,
 	MenuItem,
 	AppBar as MuiAppBar,
 	Slide,
+	SwipeableDrawer,
 	Toolbar,
 	Tooltip,
 	Typography,
@@ -15,8 +15,8 @@ import {
 	useTheme,
 } from '@mui/material';
 import { pascalCase } from 'change-case';
-import { useEffect, useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { AppBarLinks } from 'src/config';
@@ -26,47 +26,46 @@ import { ToggleButton } from '../components';
 
 export interface AppBarProps {}
 
-export const AppBar: React.FC<AppBarProps> = props => {
+export const AppBar: React.FC<AppBarProps> = () => {
 	const theme = useTheme();
 	const { pathname } = useLocation();
 	const trigger = useScrollTrigger();
-	const [scrollY, setScrollY] = useState(0);
+	const { scrollY } = useScroll();
+	const [scrollPosition, setScrollPosition] = useState(0);
+	const [drawerOpen, setDrawerOpen] = useState(false);
 
-	const handleScroll = () => {
-		setScrollY(window.scrollY);
-	};
+	useMotionValueEvent(scrollY, 'change', setScrollPosition);
 
-	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+	const handleOpenDrawer = () => setDrawerOpen(true);
+	const handleCloseDrawer = () => setDrawerOpen(false);
 
-	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+	const renderMenuItems = () =>
+		AppBarLinks.map(link => (
+			<MenuItem
+				component={HashLink}
+				key={link}
+				onClick={handleCloseDrawer}
+				smooth
+				sx={{ display: 'block', padding: 2 }}
+				to={`/#${pascalCase(link)}`}
+			>
+				<Typography textAlign='center'>{link}</Typography>
+			</MenuItem>
+		));
 
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
-
-	const MenuItems = () => (
-		<>
-			{AppBarLinks.map(link => (
-				<MenuItem
-					component={HashLink}
-					key={link}
-					onClick={handleCloseNavMenu}
-					smooth
-					to={`/#${pascalCase(link)}`}
-				>
-					<Typography textAlign='center'>{link}</Typography>
-				</MenuItem>
-			))}
-		</>
+	const logo = (
+		<Box
+			component={HashLink}
+			smooth
+			to={`/#${Sections.Hero}`}
+		>
+			<Box
+				alt='logo'
+				component='img'
+				src='assets/logo.webp'
+				style={{ height: 35, width: 100 }}
+			/>
+		</Box>
 	);
 
 	return (
@@ -74,116 +73,75 @@ export const AppBar: React.FC<AppBarProps> = props => {
 			appear={false}
 			direction='down'
 			in={!trigger}
-			{...props}
 		>
 			<MuiAppBar
-				elevation={pathname === Routes.Home ? 0 : scrollY === 0 ? 0 : 2}
+				elevation={pathname === Routes.Home && scrollPosition === 0 ? 0 : 2}
 				position='fixed'
 				sx={{
 					backdropFilter:
-						scrollY === 0 && pathname === Routes.Home
+						pathname === Routes.Home && scrollPosition === 0
 							? 'none'
 							: `blur(${theme.spacing(1)})`,
-					backgroundColor:
-						scrollY === 0 && pathname === Routes.Home
+					background:
+						pathname === Routes.Home && scrollPosition === 0
 							? 'transparent'
-							: alpha(theme.palette.primary.dark, 0.3),
-					overflow: 'hidden',
+							: `linear-gradient(180deg,${alpha(theme.palette.primary.dark, 0.8)} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
 					transition: DEFAULT_TRANSITION,
 				}}
 			>
 				<Container maxWidth='xl'>
 					<Toolbar disableGutters>
-						{/* Desktop logo */}
-						<Box
-							component={HashLink}
-							onClick={handleCloseNavMenu}
-							smooth
-							to={`/#${Sections.Hero}`}
-						>
-							<Box
-								alt='logo'
-								component={LazyLoadImage}
-								effect='blur'
-								src='assets/logo.webp'
-								sx={{
-									display: { md: 'flex', xs: 'none' },
-									height: 35,
-									width: 100,
-								}}
-							/>
-						</Box>
+						<Box sx={{ display: { md: 'flex', xs: 'none' } }}>{logo}</Box>
 
-						{/* Mobile menu icon */}
+						{/* Mobile Menu */}
 						<Box sx={{ display: { md: 'none', xs: 'flex' } }}>
 							<IconButton
-								aria-controls='menu-appbar'
-								aria-haspopup='true'
 								aria-label='open navigation menu'
 								color='inherit'
-								onClick={handleOpenNavMenu}
+								onClick={handleOpenDrawer}
 							>
 								<MenuIcon />
 							</IconButton>
-							{/* Mobile menu */}
-							<Menu
-								anchorEl={anchorElNav}
-								anchorOrigin={{
-									horizontal: 'left',
-									vertical: 'bottom',
-								}}
-								id='menu-appbar'
-								keepMounted
-								onClose={handleCloseNavMenu}
-								open={Boolean(anchorElNav)}
-								role='menu'
+							<SwipeableDrawer
+								anchor='top'
+								onClose={handleCloseDrawer}
+								onOpen={handleOpenDrawer}
+								open={drawerOpen}
 								sx={{
-									display: { md: 'none', xs: 'block' },
+									['& .MuiDrawer-paper']: {
+										backdropFilter: `blur(${theme.spacing(1)})`,
+										background: `linear-gradient(180deg,${theme.palette.primary.dark} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
+									},
 								}}
-								transformOrigin={{
-									horizontal: 'left',
-									vertical: 'top',
-								}}
-							>
-								<MenuItems />
-							</Menu>
-						</Box>
-
-						{/* Mobile logo */}
-						<Box sx={{ display: { md: 'none', xs: 'flex' }, flexGrow: 1 }}>
-							<Box
-								component={HashLink}
-								onClick={handleCloseNavMenu}
-								smooth
-								to={`/#${Sections.Hero}`}
 							>
 								<Box
-									alt='logo'
-									component={LazyLoadImage}
-									effect='blur'
-									src='assets/logo.webp'
 									sx={{
-										display: { md: 'none', xs: 'flex' },
-										width: theme.spacing(10),
+										color: theme.palette.primary.contrastText,
+										padding: 2,
+										textAlign: 'center',
 									}}
-								/>
-							</Box>
+								>
+									{renderMenuItems()}
+								</Box>
+							</SwipeableDrawer>
 						</Box>
 
-						{/* Desktop menu */}
+						<Box sx={{ display: { md: 'none', xs: 'flex' }, flexGrow: 1 }}>
+							{logo}
+						</Box>
+
+						{/* Desktop Menu */}
 						<Box
-							role='menu'
 							sx={{
-								alignItems: 'center',
 								display: { md: 'flex', xs: 'none' },
 								flexGrow: 1,
 								justifyContent: 'center',
 							}}
 						>
-							<MenuItems />
+							{renderMenuItems()}
 						</Box>
 
-						{/* Settings button */}
+						{/* Settings Button */}
 						<Box sx={{ flexGrow: 0 }}>
 							<Tooltip title='Open settings'>
 								<ToggleButton />
