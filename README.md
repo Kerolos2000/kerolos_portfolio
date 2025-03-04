@@ -8,7 +8,6 @@ This is a **Portfolio Application** built using **React**, **TypeScript**, and *
 - **Project Showcase**: List and showcase projects with details, screenshots, and links to repositories or live demos.
 - **Skills Overview**: Present key skills with proficiency levels.
 - **Contact Form**: A contact form integrated with email notifications.
-- **Interactive Charts**: Display data such as skills and project statistics through dynamic charts.
 - **Mobile Friendly**: Responsive design for all screen sizes.
 
 ## Tech Stack
@@ -16,10 +15,9 @@ This is a **Portfolio Application** built using **React**, **TypeScript**, and *
 - **Frontend**: React, TypeScript, Vite, Zustand
 - **UI Components**: Material UI
 - **Forms**: React Hook Form, Zod for validation
-- **Charts**: React-Chartjs-2
 - **Date Handling**: date-fns
 - **State Management**: Zustand
-- **API Calls**: Axios
+- **API Calls**: Axios, @tanstack/react-query
 - **Routing**: React Router Dom
 - **Notifications**: React-Toastify
 
@@ -79,16 +77,10 @@ This will serve the build at `http://localhost:5173`.
 
 This project uses custom **ESLint** and **Prettier** configurations to maintain code quality and consistency.
 
-- **Lint the project**:
+- **Lint the project and Fix lint issues**:
 
   ```
   yarn lint
-  ```
-
-- **Fix lint issues**:
-
-  ```
-  yarn lint --fix
   ```
 
 - **Format the code**:
@@ -104,16 +96,13 @@ The folder structure of the project is organized as follows:
 ```
 kerolos_portfolio/
 ├── public/                  # Static public assets (index.html, favicon, etc.)
-├── src/
 │   ├── assets/              # Images and static assets
+├── src/
 │   ├── components/          # Reusable components (e.g., buttons, headers)
 │   ├── features/            # Feature-specific modules (e.g., project showcase, skills)
 │   ├── hooks/               # Custom hooks
 │   ├── layouts/             # Layout components
 │   ├── pages/               # Pages for routing (e.g., Home, Projects, Contact)
-│   ├── services/            # API calls and external services
-│   ├── store/               # Zustand store for state management
-│   └── utils/               # Utility functions and helpers
 ├── .eslintrc.json           # ESLint configuration
 ├── .prettierrc              # Prettier configuration
 └── tsconfig.json            # TypeScript configuration
