@@ -89,12 +89,16 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 			{isMobile ? (
 				<Box
 					sx={{
+						alignItems: 'center',
 						backgroundImage: 'url(assets/background.webp)',
 						backgroundPosition: 'center',
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
+						display: 'flex',
 						filter: mode === Mode.Dark ? 'saturate(0.5)' : 'saturate(0.8)',
-						height: '50dvh',
+						justifyContent: 'center',
+						minHeight: '50dvh',
+						overflow: 'hidden',
 						transition: 'unset !important',
 						userSelect: 'none',
 						width: '100%',

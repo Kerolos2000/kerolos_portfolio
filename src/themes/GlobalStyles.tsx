@@ -47,27 +47,6 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 				'.lazy-load-image-background.blur > img': {
 					opacity: 0,
 				},
-				'.parallax': {
-					display: 'flex',
-					flexWrap: 'nowrap',
-					letterSpacing: '-2px',
-					lineHeight: 0.8,
-					margin: 0,
-					overflow: 'hidden',
-					whiteSpace: 'nowrap',
-				},
-				'.parallax .scroller': {
-					display: 'flex',
-					flexWrap: 'nowrap',
-					fontSize: '64px',
-					fontWeight: 600,
-					textTransform: 'uppercase',
-					whiteSpace: 'nowrap',
-				},
-				'.parallax span': {
-					display: 'block',
-					marginRight: '30px',
-				},
 				'.text-wrap': {
 					display: 'inline-block !important',
 					overflow: 'hidden',

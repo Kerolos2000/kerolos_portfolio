@@ -20,14 +20,13 @@ export interface images {
 
 interface ParallaxScrollProps {
 	baseVelocity: number;
-	images?: images[];
+	images: images[];
 }
 
 export const ParallaxScroll: React.FC<
 	PropsWithChildren<ParallaxScrollProps>
 > = props => {
-	const { baseVelocity, children, images } = props;
-
+	const { baseVelocity, images } = props;
 	const theme = useTheme();
 	const baseX = useMotionValue(0);
 	const { scrollY } = useScroll();
@@ -43,12 +42,13 @@ export const ParallaxScroll: React.FC<
 	const x = useTransform(baseX, v => `${wrap(-20, -45, v)}%`);
 
 	const directionFactor = useRef<number>(1);
+
 	useAnimationFrame((_, delta) => {
 		let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
 		if (velocityFactor.get() < 0) {
 			directionFactor.current = -1;
-		} else if (velocityFactor.get() > 0) {
+		} else {
 			directionFactor.current = 1;
 		}
 
@@ -58,47 +58,39 @@ export const ParallaxScroll: React.FC<
 	});
 
 	return (
-		<Box className='parallax'>
-			<motion.div
-				className='scroller'
+		<Box
+			sx={{
+				display: 'flex',
+				overflow: 'hidden',
+				whiteSpace: 'nowrap',
+			}}
+		>
+			<Box
+				component={motion.div}
 				style={{ x }}
-				viewport={{ once: true }}
+				sx={{
+					display: 'flex',
+					flexWrap: 'nowrap',
+				}}
 			>
-				{Array.from({ length: 4 }, (_, index) => (
-					<Box
-						className='span'
-						component='span'
-						key={index}
-					>
-						{images ? (
-							images?.map(image => {
-								const { alt, src } = image;
-								return (
-									<Box
-										alt={alt}
-										component={LazyLoadImage}
-										key={JSON.stringify(image)}
-										src={src}
-										sx={{
-											aspectRatio: '1/1',
-											height: theme.spacing(12),
-											marginRight: theme.spacing(2),
-											objectFit: 'contain',
-										}}
-									/>
-								);
-							})
-						) : (
-							<Box
-								component='span'
-								sx={{ marginLeft: theme.spacing(2) }}
-							>
-								{children}
-							</Box>
-						)}
-					</Box>
-				))}
-			</motion.div>
+				{[...images, ...images, ...images].map((image, index) => {
+					const { alt, src } = image;
+					return (
+						<Box
+							alt={alt}
+							component={LazyLoadImage}
+							key={index}
+							src={src}
+							sx={{
+								aspectRatio: 3 / 2,
+								marginRight: theme.spacing(2),
+								objectFit: 'contain',
+								width: theme.spacing(12),
+							}}
+						/>
+					);
+				})}
+			</Box>
 		</Box>
 	);
 };

@@ -17,6 +17,8 @@ export const Motion: React.FC<PropsWithChildren<MotionProps>> = props => {
 
 	return (
 		<motion.div
+			animate='show'
+			initial='hide'
 			transition={transition}
 			viewport={{ once: true }}
 			whileInView={{ ...(whileInView as object), transition }}
