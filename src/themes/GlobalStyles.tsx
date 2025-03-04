@@ -90,6 +90,7 @@ export const GlobalStyles: React.FC<GlobalStylesProps> = () => {
 				},
 				html: {
 					scrollBehavior: 'smooth',
+					touchAction: 'manipulation',
 				},
 			}}
 		/>

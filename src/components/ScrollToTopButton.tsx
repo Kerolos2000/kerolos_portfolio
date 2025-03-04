@@ -34,9 +34,10 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 		>
 			<Fab
 				aria-label='scroll back to top'
-				color='primary'
+				color='secondary'
 				onClick={scrollToTop}
-				size='medium'
+				size='small'
+				sx={{ borderRadius: 1 }}
 			>
 				<KeyboardArrowUpOutlinedIcon sx={{ fontSize: 30 }} />
 			</Fab>

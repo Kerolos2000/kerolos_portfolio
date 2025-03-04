@@ -85,7 +85,7 @@ export const AppBar: React.FC<AppBarProps> = () => {
 					background:
 						pathname === Routes.Home && scrollPosition === 0
 							? 'transparent'
-							: `linear-gradient(180deg,${alpha(theme.palette.primary.dark, 0.8)} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
+							: `linear-gradient(175deg,${alpha(theme.palette.primary.dark, 0.8)} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
 					transition: DEFAULT_TRANSITION,
 				}}
 			>
@@ -110,18 +110,31 @@ export const AppBar: React.FC<AppBarProps> = () => {
 								sx={{
 									['& .MuiDrawer-paper']: {
 										backdropFilter: `blur(${theme.spacing(1)})`,
-										background: `linear-gradient(180deg,${theme.palette.primary.dark} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
+										background: `linear-gradient(175deg,${theme.palette.primary.dark} 0%,${alpha(theme.palette.primary.dark, 0.1)} 100%)`,
 									},
 								}}
 							>
 								<Box
 									sx={{
+										alignItems: 'center',
 										color: theme.palette.primary.contrastText,
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'center',
 										padding: 2,
 										textAlign: 'center',
 									}}
 								>
 									{renderMenuItems()}
+									<Box
+										sx={{
+											background: `linear-gradient(360deg,${theme.palette.secondary.light} 0%,${alpha(theme.palette.primary.light, 0.1)} 100%)`,
+											borderRadius: 3,
+											height: 6,
+											mt: 3,
+											width: 30,
+										}}
+									/>
 								</Box>
 							</SwipeableDrawer>
 						</Box>

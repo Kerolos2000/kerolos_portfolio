@@ -6,7 +6,6 @@ import {
 	ListItem,
 	Typography,
 } from '@mui/material';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { HashLink } from 'react-router-hash-link';
 import { Section } from 'src/components';
 import { Contacts, QuickLinks } from 'src/config';
@@ -34,14 +33,12 @@ export const Footer: React.FC<FooterProps> = () => {
 				>
 					<Box
 						alt='logo'
-						component={LazyLoadImage}
-						effect='blur'
+						component='img'
 						src='assets/logo.webp'
 						sx={{
 							display: {
 								filter: Mode.Light === mode ? 'invert(1)' : 'none',
 								md: 'flex',
-								xs: 'none',
 							},
 							height: 35,
 							width: 100,
@@ -116,6 +113,7 @@ export const Footer: React.FC<FooterProps> = () => {
 									sx={{
 										border: theme =>
 											`1px solid ${theme.palette.secondary.light}`,
+										borderRadius: 1,
 										color: 'secondary.main',
 									}}
 									target='_blank'

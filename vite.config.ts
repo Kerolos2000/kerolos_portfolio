@@ -1,9 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { chunkSplitPlugin } from 'vite-plugin-chunk-split';
-import compression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
-import removeConsole from 'vite-plugin-remove-console';
 import sitemap from 'vite-plugin-sitemap';
 
 const routes = [
@@ -13,16 +11,37 @@ const routes = [
 
 export default defineConfig({
 	build: {
+		assetsInlineLimit: 512,
+		chunkSizeWarningLimit: 512,
 		cssMinify: true,
 		minify: 'esbuild',
+		modulePreload: true,
 		rollupOptions: {
+			cache: false,
 			output: {
-				manualChunks(id) {
-					if (id.includes('node_modules')) {
-						return 'vendor';
-					}
+				manualChunks: {
+					vendor: [
+						'react',
+						'react-dom',
+						'@mui/material',
+						'@mui/lab',
+						'react-router-dom',
+						'react-dom-client',
+						'date-fns',
+						'@tanstack/react-query',
+						'react-water-wave',
+						'axios',
+						'framer-motion',
+						'@motionone/utils',
+						'react-lazy-load-image-component',
+						'@toolpad/core',
+						'@vercel/analytics',
+						'@vercel/speed-insights',
+						'emailjs-com',
+					],
 				},
 			},
+			treeshake: 'recommended',
 		},
 		sourcemap: false,
 		target: 'esnext',
@@ -32,14 +51,6 @@ export default defineConfig({
 		chunkSplitPlugin({
 			strategy: 'single-vendor',
 			useEntryName: true,
-		}),
-		compression({
-			algorithm: 'brotliCompress',
-			threshold: 512,
-		}),
-		compression({
-			algorithm: 'gzip',
-			threshold: 1024,
 		}),
 		viteImagemin({
 			gifsicle: { optimizationLevel: 7 },
@@ -64,7 +75,6 @@ export default defineConfig({
 			readable: true,
 			robots: [{ allow: '/', userAgent: '*' }],
 		}),
-		removeConsole(),
 	],
 	resolve: {
 		alias: {

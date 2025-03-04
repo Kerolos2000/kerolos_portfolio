@@ -68,6 +68,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
 							component={ReactTyped}
 							loop
 							minWidth={270}
+							showCursor={false}
 							strings={['Frontend Developer', 'React Native Developer']}
 							sx={{ fontSize: theme.spacing(3), textAlign: 'center' }}
 							typeSpeed={50}

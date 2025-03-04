@@ -17,7 +17,11 @@ import {
 	SectionHeader,
 	TypographyWithBorder,
 } from 'src/components';
-import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
+import {
+	DEFAULT_MOTION_BODY,
+	DEFAULT_MOTION_SCALE,
+	Sections,
+} from 'src/constant';
 
 export interface AboutMeSectionProps {}
 
@@ -71,7 +75,7 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 													<Typography variant='body1'>{text}</Typography>
 												) : null}
 												{cta ? (
-													<Motion whileHover={{ rotate: -5, scale: 1.1 }}>
+													<Motion whileHover={DEFAULT_MOTION_SCALE}>
 														{cta}
 													</Motion>
 												) : null}
