@@ -1,7 +1,6 @@
 import { Typography, useTheme } from '@mui/material';
 import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 
-import { Motion } from './Motion';
 import { HStack, TypographyWithBorder } from './StyledComponents';
 
 export interface CounterProps {
@@ -25,7 +24,7 @@ export const Counter: React.FC<CounterProps> = props => {
 	};
 
 	return (
-		<Motion onViewportEnter={startAnimation}>
+		<motion.div onViewportEnter={startAnimation}>
 			<TypographyWithBorder
 				className='text-wrap'
 				variant='h6'
@@ -49,6 +48,6 @@ export const Counter: React.FC<CounterProps> = props => {
 					{rounded}
 				</motion.h3>
 			</HStack>
-		</Motion>
+		</motion.div>
 	);
 };

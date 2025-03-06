@@ -6,21 +6,22 @@ export interface MotionProps extends React.ComponentProps<typeof motion.div> {}
 export const Motion: React.FC<PropsWithChildren<MotionProps>> = props => {
 	const {
 		children,
-		initial = { opacity: 0, scale: 0.8 },
+		initial = { scale: 0.9 },
 		transition = {
-			mass: 1,
+			mass: 0.5,
 			stiffness: 50,
 			type: 'spring',
 		},
-		whileInView = { opacity: 1, scale: 1 },
+		whileInView = { scale: 1 },
 		...rest
 	} = props;
 
 	return (
 		<motion.div
 			initial={initial}
-			style={{ willChange: 'transform, scale, opacity' }}
+			style={{ willChange: 'scale' }}
 			transition={transition}
+			viewport={{ once: true }}
 			whileInView={whileInView}
 			{...rest}
 		>

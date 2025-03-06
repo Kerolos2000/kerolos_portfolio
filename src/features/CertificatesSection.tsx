@@ -63,7 +63,6 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 				<AnimatePresence>
 					{selectedId && selectedCertificate && (
 						<Box
-							component={Motion}
 							onClick={() => setSelectedId(null)}
 							sx={{
 								alignItems: 'center',
