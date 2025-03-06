@@ -1,7 +1,5 @@
-import { Box, Container, ContainerOwnProps, useTheme } from '@mui/material';
+import { Box, Container, ContainerOwnProps } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
-
-import { Motion } from './Motion';
 
 export interface SectionProps extends ContainerOwnProps {
 	id: string;
@@ -9,8 +7,6 @@ export interface SectionProps extends ContainerOwnProps {
 
 export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
 	const { children, disableGutters, id, maxWidth = 'xl', sx, ...rest } = props;
-
-	const theme = useTheme();
 
 	return (
 		<Box
@@ -26,16 +22,13 @@ export const Section: React.FC<PropsWithChildren<SectionProps>> = props => {
 			<Container
 				disableGutters={disableGutters}
 				maxWidth={maxWidth}
+				sx={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: 2,
+				}}
 			>
-				<Motion
-					style={{
-						display: 'flex',
-						flexDirection: 'column',
-						gap: theme.spacing(2),
-					}}
-				>
-					{children}
-				</Motion>
+				{children}
 			</Container>
 		</Box>
 	);

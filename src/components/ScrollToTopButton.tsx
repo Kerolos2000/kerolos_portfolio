@@ -1,15 +1,12 @@
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import { Fab, useScrollTrigger, useTheme } from '@mui/material';
+import { Box, Fab, useScrollTrigger } from '@mui/material';
 import React from 'react';
-import { DEFAULT_MOTION_SCALE } from 'src/constant';
 
 import { Motion } from './Motion';
 
 export interface ScrollToTopButtonProps {}
 
 export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
-	const theme = useTheme();
-
 	const trigger = useScrollTrigger({
 		disableHysteresis: true,
 		threshold: 300,
@@ -20,17 +17,19 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 	};
 
 	return (
-		<Motion
+		<Box
 			animate={{
 				y: trigger ? 0 : 100,
 			}}
-			style={{
-				bottom: theme.spacing(3),
+			component={Motion}
+			sx={{
+				bottom: 20,
 				position: 'fixed',
-				right: theme.spacing(3),
+				right: 20,
 				zIndex: 1000,
 			}}
-			whileHover={DEFAULT_MOTION_SCALE}
+			whileHover={{ scale: 1.2 }}
+			whileTap={{ scale: 0.9 }}
 		>
 			<Fab
 				aria-label='scroll back to top'
@@ -41,6 +40,6 @@ export const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = () => {
 			>
 				<KeyboardArrowUpOutlinedIcon sx={{ fontSize: 30 }} />
 			</Fab>
-		</Motion>
+		</Box>
 	);
 };

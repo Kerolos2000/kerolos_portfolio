@@ -1,8 +1,8 @@
 import { Grid2 } from '@mui/material';
 import React from 'react';
-import { Counter, Motion, Section, SectionHeader } from 'src/components';
+import { Counter, Section, SectionHeader } from 'src/components';
 import { CountersData } from 'src/config';
-import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
+import { Sections } from 'src/constant';
 
 export interface StatsSectionProps {}
 
@@ -24,12 +24,10 @@ export const StatsSection: React.FC<StatsSectionProps> = () => {
 							key={JSON.stringify(counter)}
 							size={{ md: 3, xs: 6 }}
 						>
-							<Motion whileInView={DEFAULT_MOTION_BODY}>
-								<Counter
-									count={count}
-									title={title}
-								/>
-							</Motion>
+							<Counter
+								count={count}
+								title={title}
+							/>
 						</Grid2>
 					);
 				})}

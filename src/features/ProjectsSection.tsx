@@ -10,7 +10,6 @@ import {
 } from 'src/components';
 import { Projects } from 'src/config';
 import {
-	DEFAULT_MOTION_BODY,
 	DEFAULT_MOTION_SCALE,
 	DEFAULT_TRANSITION,
 	Routes,
@@ -42,7 +41,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = () => {
 							key={JSON.stringify(project)}
 							size={{ lg: 4, md: 6, xl: 3, xs: 12 }}
 						>
-							<Motion whileInView={DEFAULT_MOTION_BODY}>
+							<Motion>
 								<Box
 									component={Link}
 									sx={{ textDecoration: 'none' }}

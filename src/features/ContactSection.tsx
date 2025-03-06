@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { Motion, Section, SectionHeader } from 'src/components';
 import {
 	DEFAULT_ICON_SIZE,
-	DEFAULT_MOTION_BODY,
 	DEFAULT_MOTION_SCALE,
 	EMAIL_SERVICE_ID,
 	EMAIL_TEMPLATE_ID,
@@ -123,7 +122,7 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
 								key={id}
 								size={size}
 							>
-								<Motion whileInView={DEFAULT_MOTION_BODY}>
+								<Motion>
 									<TextField
 										fullWidth
 										id={id}

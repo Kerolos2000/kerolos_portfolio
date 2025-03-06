@@ -17,11 +17,7 @@ import {
 	SectionHeader,
 	TypographyWithBorder,
 } from 'src/components';
-import {
-	DEFAULT_MOTION_BODY,
-	DEFAULT_MOTION_SCALE,
-	Sections,
-} from 'src/constant';
+import { DEFAULT_MOTION_SCALE, Sections } from 'src/constant';
 
 export interface AboutMeSectionProps {}
 
@@ -45,10 +41,7 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 						key={key}
 						size={{ lg: 4, md: 6, xs: 12 }}
 					>
-						<Motion
-							style={{ height: '100%' }}
-							whileInView={DEFAULT_MOTION_BODY}
-						>
+						<Motion style={{ height: '100%' }}>
 							<Card
 								sx={{
 									height: '100%',

@@ -13,6 +13,3 @@ export const DEFAULT_ICON_SIZE = 32;
 export const DEFAULT_ICON = ArrowDropDown;
 export const DEFAULT_TRANSITION = 'all 0.5s ease !important';
 export const DEFAULT_MOTION_SCALE = { rotate: -3, scale: 1.05 };
-export const DEFAULT_MOTION_LEFT = { x: [-100, 0] };
-export const DEFAULT_MOTION_RIGHT = { x: [100, 0] };
-export const DEFAULT_MOTION_BODY = { scale: [0.9, 1] };

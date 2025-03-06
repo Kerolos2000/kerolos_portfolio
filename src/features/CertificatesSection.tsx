@@ -4,7 +4,7 @@ import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { Motion, Section, SectionHeader } from 'src/components';
 import { Certificates } from 'src/config';
-import { DEFAULT_MOTION_BODY, Sections } from 'src/constant';
+import { Sections } from 'src/constant';
 
 export interface CertificatesSectionProps {}
 
@@ -41,7 +41,6 @@ export const CertificatesSection: React.FC<CertificatesSectionProps> = () => {
 								whileHover={{
 									boxShadow: theme.shadows[10],
 								}}
-								whileInView={DEFAULT_MOTION_BODY}
 							>
 								<Box
 									alt='certificate'
