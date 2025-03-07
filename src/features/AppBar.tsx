@@ -2,9 +2,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {
 	alpha,
 	Box,
+	Button,
 	Container,
 	IconButton,
-	MenuItem,
 	AppBar as MuiAppBar,
 	Slide,
 	SwipeableDrawer,
@@ -41,16 +41,18 @@ export const AppBar: React.FC<AppBarProps> = () => {
 
 	const renderMenuItems = () =>
 		AppBarLinks.map(link => (
-			<MenuItem
+			<Button
+				aria-label={link}
+				color='inherit'
 				component={HashLink}
 				key={link}
 				onClick={handleCloseDrawer}
 				smooth
-				sx={{ display: 'block', padding: 2 }}
+				sx={{ px: { md: 2, xs: 0 }, py: { md: 0, xs: 2 } }}
 				to={`/#${pascalCase(link)}`}
 			>
 				<Typography textAlign='center'>{link}</Typography>
-			</MenuItem>
+			</Button>
 		));
 
 	const logo = (

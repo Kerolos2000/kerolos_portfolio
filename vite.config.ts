@@ -43,7 +43,7 @@ export default defineConfig({
 			},
 			treeshake: 'recommended',
 		},
-		sourcemap: false,
+		sourcemap: true,
 		target: 'esnext',
 	},
 	plugins: [
