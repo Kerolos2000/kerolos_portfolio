@@ -17,7 +17,7 @@ export const Projects: Project[] = [
 	},
 	{
 		image: 'assets/growth-level-academy.webp',
-		link: 'https://growth-level-academy.vercel.app/',
+		link: 'https://growthlevelacademy.com/',
 		title: 'Growth Level Academy',
 	},
 	{
