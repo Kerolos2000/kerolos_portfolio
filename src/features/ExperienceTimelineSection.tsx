@@ -58,7 +58,7 @@ export const ExperienceTimelineSection: React.FC = () => {
 
 			<Timeline
 				position={isMobile ? 'right' : 'alternate'}
-				sx={{ py: { md: 4, xs: 2 } }}
+				sx={{ p: 0 }}
 			>
 				{experiences.map((exp, idx) => (
 					<TimelineItem
@@ -78,7 +78,7 @@ export const ExperienceTimelineSection: React.FC = () => {
 							{exp.period}
 						</TimelineOppositeContent>
 
-						<TimelineSeparator>
+						<TimelineSeparator sx={{ px: 2 }}>
 							<TimelineDot
 								color='primary'
 								sx={{ p: { md: 1.5, xs: 1 } }}
@@ -91,7 +91,9 @@ export const ExperienceTimelineSection: React.FC = () => {
 							)}
 						</TimelineSeparator>
 
-						<TimelineContent sx={{ pb: { md: 4, xs: 2 } }}>
+						<TimelineContent
+							sx={{ mt: 1, pb: { md: 4, xs: 2 }, px: { md: 2, xs: 0 } }}
+						>
 							<Card
 								sx={{
 									alignItems: 'flex-start',
