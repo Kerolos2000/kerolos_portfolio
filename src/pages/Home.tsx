@@ -3,6 +3,7 @@ import {
 	AboutMeSection,
 	CertificatesSection,
 	ContactSection,
+	ExperienceTimelineSection,
 	HeroSection,
 	ProjectsSection,
 	SkillsSection,
@@ -16,6 +17,7 @@ export const Home: React.FC<HomeProps> = () => {
 		<>
 			<HeroSection />
 			<AboutMeSection />
+			<ExperienceTimelineSection />
 			<StatsSection />
 			<SkillsSection />
 			<ProjectsSection />

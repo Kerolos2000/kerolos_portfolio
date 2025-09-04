@@ -3,6 +3,7 @@ export enum Sections {
 	Certificates = 'Certificates',
 	Contact = 'Contact',
 	Counter = 'Counter',
+	Experience = 'Experience',
 	Footer = 'Footer',
 	Hero = 'Hero',
 	Projects = 'Projects',
