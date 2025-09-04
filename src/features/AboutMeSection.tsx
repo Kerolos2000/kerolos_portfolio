@@ -1,9 +1,7 @@
 import { SvgIconComponent } from '@mui/icons-material';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalanceTwoTone';
-import ApartmentIcon from '@mui/icons-material/ApartmentTwoTone';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import FmdGoodIcon from '@mui/icons-material/FmdGoodTwoTone';
-import LaptopChromebookIcon from '@mui/icons-material/LaptopChromebookTwoTone';
 import TodayIcon from '@mui/icons-material/TodayTwoTone';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import WorkIcon from '@mui/icons-material/WorkTwoTone';
@@ -36,50 +34,73 @@ export const AboutMeSection: React.FC<AboutMeSectionProps> = () => {
 				spacing={2}
 				sx={{ justifyContent: 'center' }}
 			>
-				{Object.entries(aboutMeConfig).map(([key, items]) => (
-					<Grid2
-						key={key}
-						size={{ lg: 4, md: 6, xs: 12 }}
-					>
-						<Motion style={{ height: '100%' }}>
-							<Card
-								sx={{
-									height: '100%',
-								}}
-							>
-								<CardContent
+				{(Object.entries(aboutMeConfig) as [string, AboutMeItem[]][]).map(
+					([key, items]) => (
+						<Grid2
+							key={key}
+							size={{ md: 6, xs: 12 }}
+						>
+							<Motion style={{ height: '100%' }}>
+								<Card
 									sx={{
-										display: 'flex',
-										flexDirection: 'column',
-										gap: 1,
+										height: '100%',
+										overflow: 'hidden',
+										position: 'relative',
 									}}
 								>
-									<TypographyWithBorder variant='h4'>
-										{key}
-									</TypographyWithBorder>
-									{items.map((item: AboutMeItem) => {
-										const { cta, icon: Icon, text } = item;
-										return (
-											<HStack key={JSON.stringify(item)}>
-												{Icon ? (
-													<Icon sx={{ color: 'text.secondary' }} />
-												) : null}
-												{text ? (
-													<Typography variant='body1'>{text}</Typography>
-												) : null}
-												{cta ? (
-													<Motion whileHover={DEFAULT_MOTION_SCALE}>
-														{cta}
-													</Motion>
-												) : null}
-											</HStack>
-										);
-									})}
-								</CardContent>
-							</Card>
-						</Motion>
-					</Grid2>
-				))}
+									{items[0]?.icon
+										? (() => {
+												const Icon = items[0].icon;
+												return (
+													<Icon
+														sx={theme => ({
+															bottom: theme.spacing(2),
+															color: theme.palette.text.primary,
+															fontSize: { md: 180, xs: 120 },
+															opacity: 0.05,
+															pointerEvents: 'none',
+															position: 'absolute',
+															right: theme.spacing(2),
+														})}
+													/>
+												);
+											})()
+										: null}
+
+									<CardContent
+										sx={{
+											display: 'flex',
+											flexDirection: 'column',
+											gap: 1,
+										}}
+									>
+										<TypographyWithBorder variant='h4'>
+											{key}
+										</TypographyWithBorder>
+										{items.map((item: AboutMeItem) => {
+											const { cta, icon: Icon, text } = item;
+											return (
+												<HStack key={JSON.stringify(item)}>
+													{Icon ? (
+														<Icon sx={{ color: 'text.secondary' }} />
+													) : null}
+													{text ? (
+														<Typography variant='body1'>{text}</Typography>
+													) : null}
+													{cta ? (
+														<Motion whileHover={DEFAULT_MOTION_SCALE}>
+															{cta}
+														</Motion>
+													) : null}
+												</HStack>
+											);
+										})}
+									</CardContent>
+								</Card>
+							</Motion>
+						</Grid2>
+					),
+				)}
 			</Grid2>
 		</Section>
 	);
@@ -94,7 +115,6 @@ export interface AboutMeItem {
 
 export interface AboutMeConfig {
 	education: AboutMeItem[];
-	experience: AboutMeItem[];
 	personal: AboutMeItem[];
 }
 
@@ -107,12 +127,6 @@ const aboutMeConfig: AboutMeConfig = {
 		{ icon: FmdGoodIcon, text: 'Alexandria, Egypt' },
 		{ icon: WorkspacePremiumIcon, text: 'Very Good with Honer' },
 		{ icon: TodayIcon, text: '2018 - 2022' },
-	],
-	experience: [
-		{ icon: LaptopChromebookIcon, text: 'Frontend Developer' },
-		{ icon: ApartmentIcon, text: 'B.M Enterprise' },
-		{ icon: FmdGoodIcon, text: 'Alexandria, Egypt' },
-		{ icon: TodayIcon, text: '11/2023 - 9/2024' },
 	],
 	personal: [
 		{ icon: FmdGoodIcon, text: 'Alexandria, Egypt' },

@@ -4,7 +4,7 @@ export const CountersData = [
 		title: 'Projects completed',
 	},
 	{
-		count: 3,
+		count: 2,
 		title: 'Active Projects',
 	},
 	{
@@ -12,7 +12,7 @@ export const CountersData = [
 		title: 'Happy clients',
 	},
 	{
-		count: 2,
+		count: 3,
 		title: 'Years of experience',
 	},
 ];
